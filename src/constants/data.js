@@ -1,82 +1,41 @@
 import images from './images';
 
-const wines = [
+const wings = [
   {
-    title: 'Chapel Hill Shiraz',
-    price: '$56',
-    tags: 'AU | Bottle',
-  },
-  {
-    title: 'Catena Malbee',
-    price: '$59',
-    tags: 'AU | Bottle',
-  },
-  {
-    title: 'La Vieillw Rose',
-    price: '$44',
-    tags: 'FR | 750 ml',
-  },
-  {
-    title: 'Rhino Pale Ale',
-    price: '$31',
-    tags: 'CA | 750 ml',
-  },
-  {
-    title: 'Irish Guinness',
-    price: '$26',
-    tags: 'IE | 750 ml',
-  },
-];
-
-const cocktails = [
-  {
-    title: 'Aperol Sprtiz',
-    price: '$20',
-    tags: 'Aperol | Villa Marchesi prosecco | soda | 30 ml',
-  },
-  {
-    title: "Dark 'N' Stormy",
-    price: '$16',
-    tags: 'Dark rum | Ginger beer | Slice of lime',
-  },
-  {
-    title: 'Daiquiri',
+    title: 'Rocket Chicken',
     price: '$10',
-    tags: 'Rum | Citrus juice | Sugar',
+    tags: '10 Wings',
   },
   {
-    title: 'Old Fashioned',
-    price: '$31',
-    tags: 'Bourbon | Brown sugar | Angostura Bitters',
+    title: 'Chunky Chicken',
+    price: '$9.99',
+    tags: '1 pound',
   },
   {
-    title: 'Negroni',
-    price: '$26',
-    tags: 'Gin | Sweet Vermouth | Campari | Orange garnish',
+    title: 'Chix Strips',
+    price: '$5',
+    tags: '3 pieces',
   },
+
 ];
 
-const awards = [
+const Sandwiches = [
   {
-    imgUrl: images.award02,
-    title: 'Bib Gourmond',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur.',
+    title: 'Chciken Tawook',
+    price: '$8.99',
+    tags: 'Delicious seasoned chicken wrapped in pita bread',
   },
   {
-    imgUrl: images.award01,
-    title: 'Rising Star',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur.',
+    title: "Falafel Sandwich",
+    price: '$8.99',
+    tags: 'Fried Falael in pita bread',
   },
   {
-    imgUrl: images.award05,
-    title: 'AA Hospitality',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur.',
+    title: 'Fish Sandwich',
+    price: '$9.99',
+    tags: 'Delicious filet of cod on a bun',
   },
-  {
-    imgUrl: images.award03,
-    title: 'Outstanding Chef',
-    subtitle: 'Lorem ipsum dolor sit amet, consectetur.',
-  },
+  
 ];
 
-export default { wines, cocktails, awards };
+export default { wings, Sandwiches};
