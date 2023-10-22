@@ -1,4 +1,7 @@
-import React from 'react';
+
+
+
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SubHeading, MenuItem } from '../../components';
 import { data, images } from '../../constants';
@@ -8,9 +11,17 @@ import './SpecialMenu.css';
 const SpecialMenu = () => {
   const navigate = useNavigate();
 
+  const [selectedItem, setSelectedItem] = useState(null);
+
   const handleViewMoreClick = () => {
-    navigate('../../pages/MenuList/MenuList'); //please figure out how we can navigate to Menu List Page
+    navigate('../../pages/MenuList/MenuList'); //please figure out how we can navigate to Menu List
   };
+
+  const handleItemClick = (item) => {
+    setSelectedItem(item);
+  };
+
+
 
   return (
     <div className="app__specialMenu flex__center section__padding" id="menu">
@@ -37,7 +48,7 @@ const SpecialMenu = () => {
           <p className="app__specialMenu-menu_heading">Sandwiches</p>
           <div className="app__specialMenu_menu_items">
             {data.specialSandwiches.map((Sandwich, index) => (
-              <MenuItem key={Sandwich.title + index} title={Sandwich.title} price={Sandwich.price} tags={Sandwich.tags} />
+              <MenuItem key={Sandwich.title + index} title={Sandwich.title} price={Sandwich.price} tags={Sandwich.tags} onClick={() => handleItemClick(Sandwich.title)} />
             ))}
           </div>
         </div>
@@ -48,8 +59,19 @@ const SpecialMenu = () => {
           View More
         </button>
       </div>
+
+      {selectedItem && (
+        <div className="selected-item-details">
+          <h2>Selected Item Details</h2>
+          <p>Title: {selectedItem.title}</p>
+          <p>Price: {selectedItem.price}</p>
+          <p>Tags: {selectedItem.tags.join(', ')}</p>
+        </div>
+      )}
     </div>
   );
 };
 
-export default SpecialMenu;
+export default SpecialMenu;  
+
+
