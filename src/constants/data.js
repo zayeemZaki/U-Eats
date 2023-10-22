@@ -1,6 +1,6 @@
 import images from './images';
 
-const wings = [
+const specialWings = [
   {
     title: 'Rocket Chicken',
     price: '$10',
@@ -19,7 +19,7 @@ const wings = [
 
 ];
 
-const Sandwiches = [
+const specialSandwiches = [
   {
     title: 'Chciken Tawook',
     price: '$8.99',
@@ -38,4 +38,4 @@ const Sandwiches = [
   
 ];
 
-export default { wings, Sandwiches};
+export default { specialWings, specialSandwiches};
