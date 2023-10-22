@@ -3,6 +3,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import images from '../../constants/images';
 import './Navbar.css';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = React.useState(false);
@@ -17,11 +18,14 @@ const Navbar = () => {
         <li className="p__opensans"><a href="#menu">Menu</a></li>
         <li className="p__opensans"><a href="#contact">Contact</a></li>
       </ul>
+      
       <div className="app__navbar-login">
-        <a href="#login" className="p__opensans">Log In / Registration</a>
-        <div />
-        <a href="/" className="p__opensans">Book Table</a>
+        <a href="/cart" className="p__opensans">
+          <FaShoppingCart />
+        </a>
       </div>
+
+
       <div className="app__navbar-smallscreen">
         <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
         {toggleMenu && (
