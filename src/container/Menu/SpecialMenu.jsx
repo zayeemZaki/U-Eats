@@ -2,20 +2,25 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SubHeading, MenuItem, Item } from '../../components';
 import { data, images } from '../../constants';
+import { Cart } from '../../pages';
 import './SpecialMenu.css';
+
 
 const SpecialMenu = () => {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // State for controlling the modal
+  const [cart, setCart] = useState([]);
 
   const handleViewMoreClick = () => {
-    navigate('../../pages/MenuList/MenuList');
+    console.log('Item clicked:');
+
+    navigate('../../pages/MenuList/MenuList'); //This navigation link isn't working! I have it in pages folder which should display the full menu option!
   };
 
-  const handleItemClick = (sandwich) => {
-    console.log('Item clicked:', sandwich);
-    setSelectedItem(sandwich);
+  const handleItemClick = (item) => {
+    console.log('Item clicked:', item);
+    setSelectedItem(item);
     setIsModalOpen(true); // Open the modal
   };
 
@@ -23,6 +28,13 @@ const SpecialMenu = () => {
     setIsModalOpen(false); // Close the modal
   };
 
+  const handleAddToCart = (item) => {
+    console.log('Adding to cart'); 
+
+    setCart([...cart, item]); // This should correctly update the cart
+    console.log('Cart:', cart); // Verify that the cart state is updated
+  };
+  
   return (
     <div className="app__specialMenu flex__center section__padding" id="menu">
       <div className="app__specialMenu-title">
@@ -40,7 +52,7 @@ const SpecialMenu = () => {
                 title={wing.title}
                 price={wing.price}
                 tags={wing.tags}
-                onClick={() => handleItemClick(wing)} // Pass the callback function to the onClick prop
+                onClick={() => handleItemClick(wing)} 
               />
             ))}
           </div>
@@ -59,9 +71,7 @@ const SpecialMenu = () => {
                 title={sandwich.title}
                 price={sandwich.price}
                 tags={sandwich.tags}
-                onClick={() => { // Wrap the handleItemClick function in a callback function that takes no parameters
-                  handleItemClick(sandwich);
-                }}
+                onClick={() => handleItemClick(sandwich)}
               />
             ))}
           </div>
@@ -80,8 +90,13 @@ const SpecialMenu = () => {
           price={selectedItem.price}
           tags={selectedItem.tags}
           onClose={closeModal} // Pass the closeModal function to the modal
+          onAddToCart={() => handleAddToCart(selectedItem)} // Pass the callback to add to the cart
+
         />
       )}
+      <Cart cart={cart} />
+
+
     </div>
   );
 };
