@@ -94,7 +94,6 @@ const SpecialMenu = () => {
 
         />
       )}
-      <Cart cart={cart} />
 
 
     </div>
