@@ -13,9 +13,6 @@ const Cart = ({cart}) => {
     const handleCheckOut = () => {
       navigate('/CheckOut');
     };
-    if (!cart) {
-      return <p>cart not defined.</p>;
-    }
   
     return (
       <div>
