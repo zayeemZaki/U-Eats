@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Cart, CheckOut, Home, MenuList } from './pages';
 import './App.css';
@@ -7,10 +7,23 @@ const App = () => {
   // Define cartData as an array of items
   const [cartData, setCartData] = useState([]);
 
-  const addToCart = (item) => {
-    setCartData([...cartData, item]);
-  };
+    // Load cart data from localStorage on component mount
+    useEffect(() => {
+      const storedCartData = localStorage.getItem('cartData');
+      if (storedCartData) {
+        setCartData(JSON.parse(storedCartData));
+      }
+    }, []);
+  
 
+    const addToCart = (item) => {
+      const newCartData = [...cartData, item];
+      setCartData(newCartData);
+  
+      // Save updated cart data to localStorage
+      localStorage.setItem('cartData', JSON.stringify(newCartData));
+    };
+    
   return (
     <Router>
       <div>

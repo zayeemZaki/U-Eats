@@ -11,6 +11,7 @@ const SpecialMenu = ({ addToCart }) => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // State for controlling the modal
   //const [cart, setCart] = useState([]);
+  const [localCart, setLocalCart] = useState([]); // Local cart state for SpecialMenu
 
   const handleViewMoreClick = () => {
     console.log('Item clicked:');
@@ -30,11 +31,11 @@ const SpecialMenu = ({ addToCart }) => {
 
 
   const handleAddToCart = (item) => {
-    console.log('Adding to cart'); 
+    console.log('Adding to cart in SpecialMenu:', item);
     addToCart(item);
-   // console.log('Cart:', cart); // Verify that the cart state is updated
+    setLocalCart([...localCart, item]);
   };
-  
+    
   return (
     <div className="app__specialMenu flex__center section__padding" id="menu">
       <div className="app__specialMenu-title">
