@@ -1,9 +1,13 @@
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
 
 const Cart = ({cart}) => {
+
+  console.log('Cart items:', cart);
+
     const navigate = useNavigate();
   
     const handleContinueShopping = () => {
@@ -17,6 +21,7 @@ const Cart = ({cart}) => {
     return (
       <div>
         <h1>Shopping Cart Page</h1>
+
         {cart.map((item, index) => (
           <div key={index}>
             <h2>{item.title}</h2>
