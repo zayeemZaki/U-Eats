@@ -28,6 +28,7 @@ const SpecialMenu = () => {
     setIsModalOpen(false); // Close the modal
   };
 
+
   const handleAddToCart = (item) => {
     console.log('Adding to cart'); 
 
@@ -95,7 +96,7 @@ const SpecialMenu = () => {
         />
       )}
 
-
+   
     </div>
   );
 };
