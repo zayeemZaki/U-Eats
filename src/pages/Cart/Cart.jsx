@@ -40,7 +40,7 @@ const Cart = ({ cart, setCartData }) => {
           <p>Tags: {item.tags.join(', ')}</p>
         </div>
       ))}
-//asf
+
       <div>
         <p>Total Price: {totalPrice}</p>
       </div>
