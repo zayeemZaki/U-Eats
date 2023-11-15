@@ -17,12 +17,32 @@ const App = () => {
   
 
     const addToCart = (item) => {
-      const newCartData = [...cartData, item];
-      setCartData(newCartData);
-  
-      // Save updated cart data to localStorage
-      localStorage.setItem('cartData', JSON.stringify(newCartData));
+      // Check if the item is already in the cart based on the title
+      const existingItemIndex = cartData.findIndex((cartItem) => cartItem.title === item.title);
+    
+      if (existingItemIndex !== -1) {
+        // If the item is already in the cart, update its quantity
+        const updatedCart = cartData.map((cartItem, index) =>
+          index === existingItemIndex
+            ? { ...cartItem, quantity: cartItem.quantity + 1 } // Increase quantity
+            : cartItem
+        );
+    
+        // Update the cart state
+        setCartData(updatedCart);
+    
+        // Save updated cart data to localStorage
+        localStorage.setItem('cartData', JSON.stringify(updatedCart));
+      } else {
+        // If the item is not in the cart, add it with quantity 1
+        const newCartData = [...cartData, { ...item, quantity: 1 }];
+        setCartData(newCartData);
+    
+        // Save updated cart data to localStorage
+        localStorage.setItem('cartData', JSON.stringify(newCartData));
+      }
     };
+    
     
   return (
     <Router>
@@ -30,7 +50,7 @@ const App = () => {
         <Routes>
         <Route path="/" element={<Home addToCart={addToCart} />} />
           {/* Pass cartData and addToCart function to the Cart component */}
-          <Route path="/cart" element={<Cart cart={cartData} addToCart={addToCart} />} />
+          <Route path="/cart" element={<Cart cart={cartData} addToCart={addToCart} setCartData={setCartData}/>} />
           <Route path="/checkout" element={<CheckOut />} />
           <Route path="/menuList" element={<MenuList />} />
         </Routes>
