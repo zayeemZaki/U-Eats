@@ -1,13 +1,13 @@
 
 import Cart from './Cart/Cart';
-import CheckOut from './CheckOut/CheckOut';
+import Checkout from './Checkout/Checkout';
 import Home from './Home/Home';
 import MenuList from './MenuList/MenuList';
 
 
 export {
   Cart,
-  CheckOut,
+  Checkout,
   Home,
   MenuList,
 };
