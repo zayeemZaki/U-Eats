@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Cart = ({ cart, setCartData}) => {
-  console.log('Cart items:', cart);
+const Cart = ({ cart, setCartData }) => {
 
   const navigate = useNavigate();
 
@@ -23,8 +21,13 @@ const Cart = ({ cart, setCartData}) => {
     localStorage.removeItem('cartData');
   };
 
+  const totalPrice = cart.reduce((acc, item) => {
 
-
+    const numericPrice = parseFloat(item.price.replace('$', ''));
+  
+    return acc + numericPrice * item.quantity;
+  }, 0);
+  
   return (
     <div>
       <h1>Shopping Cart Page</h1>
@@ -38,6 +41,10 @@ const Cart = ({ cart, setCartData}) => {
         </div>
       ))}
 
+      <div>
+        <p>Total Price: {totalPrice}</p>
+      </div>
+
       <button type="button" className="custom__button" onClick={handleContinueShopping}>
         Continue Shopping
       </button>
@@ -47,7 +54,6 @@ const Cart = ({ cart, setCartData}) => {
       <button type="button" className="custom__button" onClick={handleClearCart}>
         Clear Cart
       </button>
-
     </div>
   );
 };

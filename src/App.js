@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Cart, CheckOut, Home, MenuList } from './pages';
+import { Cart, Checkout, Home, MenuList } from './pages';
 import './App.css';
 
 const App = () => {
@@ -49,9 +50,9 @@ const App = () => {
       <div>
         <Routes>
         <Route path="/" element={<Home addToCart={addToCart} />} />
-          {/* Pass cartData and addToCart function to the Cart component */}
+          
           <Route path="/cart" element={<Cart cart={cartData} addToCart={addToCart} setCartData={setCartData}/>} />
-          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/menuList" element={<MenuList />} />
         </Routes>
       </div>
@@ -64,30 +65,3 @@ export default App;
 
 
 
-
-
-// import React, { useState } from 'react';
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { Cart, CheckOut, Home, MenuList } from './pages';
-// import './App.css';
-
-// const App = () => {
-//   // Define cartData as an array of items
-//   const [cartData, setCartData] = useState([]);
-
-//   return (
-//     <Router>
-//       <div>
-//         <Routes>
-//           <Route path="/" element={<Home />} />
-//           {/* Pass cartData to the Cart component */}
-//           <Route path="/cart" element={<Cart cart={cartData} />} />
-//           <Route path="/checkout" element={<CheckOut />} />
-//           <Route path="/menuList" element={<MenuList />} />
-//         </Routes>
-//       </div>
-//     </Router>
-//   );
-// };
-
-// export default App;
