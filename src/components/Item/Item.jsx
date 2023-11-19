@@ -1,7 +1,7 @@
 import React from 'react';
 import './Item.css';
 
-const Item = ({ title, price, tags, onClose, onAddToCart, Quantity }) => {
+const Item = ({ title, price, tags, onClose, onAddToCart, Quantity, stripePriceId }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content">
@@ -10,6 +10,7 @@ const Item = ({ title, price, tags, onClose, onAddToCart, Quantity }) => {
         <p>Price: {price}</p>
         <p>Quanity: {Quantity}</p>
         <p>Tags: {tags.join(', ')}</p>
+       {/* // <p>stripePriceId: {stripePriceId}</p> */}
         <button onClick={onAddToCart}>Add to Cart</button> {/* Add the Add to Cart button */}
 
       </div>

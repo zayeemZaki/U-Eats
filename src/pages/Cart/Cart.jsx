@@ -2,32 +2,50 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Cart = ({ cart, setCartData }) => {
-
   const navigate = useNavigate();
 
   const handleContinueShopping = () => {
     navigate('/');
   };
 
-  const handleCheckOut = () => {
-    navigate('/CheckOut');
+  const handleCheckOut = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cart }),
+      });
+      
+  
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Error response from server:', errorText);
+        throw new Error('Failed to create checkout session');
+      }
+  
+      const session = await response.json();
+      window.location.href = session.url;
+    } catch (error) {
+      console.error(error);
+      // Handle the error as needed, e.g., show an error message to the user
+    }
   };
-
+    
   const handleClearCart = () => {
     // Clear the cart by setting it to an empty array
     setCartData([]);
-    
+
     // Clear the cart data in localStorage
     localStorage.removeItem('cartData');
   };
 
   const totalPrice = cart.reduce((acc, item) => {
-
     const numericPrice = parseFloat(item.price.replace('$', ''));
-  
     return acc + numericPrice * item.quantity;
   }, 0);
-  
+
   return (
     <div>
       <h1>Shopping Cart Page</h1>
@@ -59,3 +77,8 @@ const Cart = ({ cart, setCartData }) => {
 };
 
 export default Cart;
+
+
+
+
+
