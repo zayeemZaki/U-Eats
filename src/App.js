@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { Cart, Checkout, Home, MenuList } from './pages/index.js';
+import { Cart, Home, MenuList, AdminDashboard } from './pages/index.js';
 import './App.css';
 
 const stripePromise = loadStripe('pk_test_51OCquvFGH3BedVinqfg7MNsxICmQfsflg0CEXmc8v16ymT1nOVG5N1UpHmjiOIaZ4v79WdP2iGf85kWUZkijl0BK00E0T2MXWk'); // Replace with your actual publishable key
@@ -51,7 +51,8 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home addToCart={addToCart} />} />
           <Route path="/cart" element={<Cart cart={cartData} addToCart={addToCart} setCartData={setCartData} />} />
-          
+          <Route path="/admin" element={<AdminDashboard />} />
+
           <Route path="/menuList" element={<MenuList />} />
         </Routes>
       </div>
