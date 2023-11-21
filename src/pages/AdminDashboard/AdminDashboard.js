@@ -69,6 +69,11 @@ const AdminDashboard = () => {
             <select value={category} onChange={(e) => setCategory(e.target.value)}>
               <option value="specialWings">Special Wings</option>
               <option value="specialSandwiches">Special Sandwiches</option>
+              <option value="wings">Wings</option>
+              <option value="starters">Starters</option>
+              <option value="sandwiches">Sandwiches</option>
+              <option value="burgers">Burgers</option>
+              <option value="salads">Salads</option>
             </select>
           </label>
           <br />
