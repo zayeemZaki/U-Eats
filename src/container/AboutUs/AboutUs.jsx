@@ -13,8 +13,7 @@ const AboutUs = () => (
       <div className="app__aboutus-content_about">
         <h1 className="headtext__cormorant">About Us</h1>
         <img src={images.spoon} alt="about_spoon" className="spoon__img" />
-        <p className="p__opensans">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pharetra adipiscing ultrices vulputate posuere tristique. In sed odio nec aliquet eu proin mauris et.</p>
-        <button type="button" className="custom__button">Know More</button>
+        <p className="p__opensans">U-Eats is a local mediterranean restaurant with traditional middle eastern flavors like you've never seen before. Every single item is made with care and perfection, guaranteed to leave you satisfied.</p>
       </div>
 
       <div className="app__aboutus-content_knife flex__center">
@@ -22,10 +21,9 @@ const AboutUs = () => (
       </div>
 
       <div className="app__aboutus-content_history">
-        <h1 className="headtext__cormorant">Our History</h1>
+        <h1 className="headtext__cormorant">Our Food</h1>
         <img src={images.spoon} alt="about_spoon" className="spoon__img" />
-        <p className="p__opensans">Adipiscing tempus ullamcorper lobortis odio tellus arcu volutpat. Risus placerat morbi volutpat habitasse interdum mi aliquam In sed odio nec aliquet.</p>
-        <button type="button" className="custom__button">Know More</button>
+        <p className="p__opensans">Our food is the highest quality, made with the highest precision to ensure you get the perfect meal you deserve. We do not slack when it comes to our food here at U-Eats and will go above and beyond to satisfy our customers.</p>
       </div>
     </div>
   </div>

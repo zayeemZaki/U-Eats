@@ -16,7 +16,7 @@ const SpecialMenu = ({ addToCart }) => {
   const handleViewMoreClick = () => {
     console.log('Item clicked:');
 
-    navigate('../../pages/MenuList/MenuList'); //This navigation link isn't working! I have it in pages folder which should display the full menu option!
+    navigate('/menuPage'); 
   };
 
   const handleItemClick = (item) => {
@@ -40,7 +40,7 @@ const SpecialMenu = ({ addToCart }) => {
     <div className="app__specialMenu flex__center section__padding" id="menu">
       <div className="app__specialMenu-title">
         <SubHeading title="Menu that fits your palate" />
-        <h1 className="headtext__cormorant">Today's Special</h1>
+        <h1 className="headtext__cormorant">Glance at our menu</h1>
       </div>
 
       <div className="app__specialMenu-menu">
