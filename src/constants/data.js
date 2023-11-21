@@ -122,7 +122,7 @@ module.exports = {
 
   "wings": [
     {
-      "title": "Rocket Chicken",
+      "title": "Rocket Chicken - 10",
       "price": "$10",
       "tags": [
         "10 Wings"
@@ -130,7 +130,7 @@ module.exports = {
       "stripePriceId": "price_1OEJtuFGH3BedVinFu2FTAZb"
     },
     {
-      "title": "Rocket Chicken",
+      "title": "Rocket Chicken - 20",
       "price": "$19",
       "tags": [
         "20 Wings"
@@ -138,7 +138,7 @@ module.exports = {
       "stripePriceId": "price_1OF3UpFGH3BedVinnVEM3jHP"
     },
     {
-      "title": "Rocket Chicken",
+      "title": "Rocket Chicken - 50",
       "price": "$45",
       "tags": [
         "50 Wings"
@@ -154,7 +154,7 @@ module.exports = {
       "stripePriceId": "price_1OEK0QFGH3BedVinDhNeqch0"
     },
     {
-      "title":  "Chix Strips",
+      "title":  "Chix Strips - 3",
       "price": "$5",
       "tags": [
         "3 piece of our Halal Chicken Tenders fried to a golden crisp"
@@ -162,7 +162,7 @@ module.exports = {
       "stripePriceId": "price_1OEK1PFGH3BedVinYTfgkg4F"
     },
     {
-      "title":  "Chix Strips",
+      "title":  "Chix Strips - 6",
       "price": "$9",
       "tags": [
         "6 piece of our Halal Chicken Tenders fried to a golden crisp"
