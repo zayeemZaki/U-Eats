@@ -10,14 +10,7 @@ const FullMenu = ({ addToCart }) => {
     const navigate = useNavigate();
     const [selectedItem, setSelectedItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false); // State for controlling the modal
-    //const [cart, setCart] = useState([]);
     const [localCart, setLocalCart] = useState([]); // Local cart state for SpecialMenu
-
-    const handleViewMoreClick = () => {
-        console.log('Item clicked:');
-
-        navigate('/menuPage'); 
-    };
 
     const handleItemClick = (item) => {
         console.log('Item clicked:', item);
@@ -31,7 +24,7 @@ const FullMenu = ({ addToCart }) => {
 
 
     const handleAddToCart = (item) => {
-        console.log('Adding to cart in SpecialMenu:', item);
+        console.log('Adding to cart in Full Menu:', item);
         addToCart(item);
         setLocalCart([...localCart, item]);
     };
@@ -45,11 +38,30 @@ const FullMenu = ({ addToCart }) => {
 
             <div className="app__fullMenu-menu">
                 <div className="app__fullMenu-menu_wine flex__center">
+                    <p className="app__fullMenu-menu_heading">Starters</p>
+                    <div className="app__fullMenu_menu_items">
+                        {data.starters.map((starter) => (
+                            <MenuItem
+                                key={starter.title}
+                                title={starter.title}
+                                price={starter.price}
+                                tags={starter.tags}
+                                stripePriceId={starter.stripePriceId}
+
+                                onClick={() => handleItemClick(starter)} 
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="app__fullMenu-menu">
+                <div className="app__fullMenu-menu_wine flex__center">
                     <p className="app__fullMenu-menu_heading">Wings</p>
                     <div className="app__fullMenu_menu_items">
-                        {data.specialWings.map((wing, index) => (
+                        {data.wings.map((wing) => (
                             <MenuItem
-                                key={wing.title + index}
+                                key={wing.title}
                                 title={wing.title}
                                 price={wing.price}
                                 tags={wing.tags}
@@ -61,7 +73,77 @@ const FullMenu = ({ addToCart }) => {
                     </div>
                 </div>
             </div>
+
+            <div className="app__fullMenu-menu">
+                <div className="app__fullMenu-menu_wine flex__center">
+                    <p className="app__fullMenu-menu_heading">Sandwich</p>
+                    <div className="app__fullMenu_menu_items">
+                        {data.sandwiches.map((sandwich) => (
+                            <MenuItem
+                                key={sandwich.title}
+                                title={sandwich.title}
+                                price={sandwich.price}
+                                tags={sandwich.tags}
+                                stripePriceId={sandwich.stripePriceId}
+
+                                onClick={() => handleItemClick(sandwich)} 
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="app__fullMenu-menu">
+                <div className="app__fullMenu-menu_wine flex__center">
+                    <p className="app__fullMenu-menu_heading">Burgers</p>
+                    <div className="app__fullMenu_menu_items">
+                        {data.burgers.map((burger) => (
+                            <MenuItem
+                                key={burger.title}
+                                title={burger.title}
+                                price={burger.price}
+                                tags={burger.tags}
+                                stripePriceId={burger.stripePriceId}
+
+                                onClick={() => handleItemClick(burger)} 
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="app__fullMenu-menu">
+                <div className="app__fullMenu-menu_wine flex__center">
+                    <p className="app__fullMenu-menu_heading">Salads</p>
+                    <div className="app__fullMenu_menu_items">
+                        {data.salads.map((salad) => (
+                            <MenuItem
+                                key={salad.title}
+                                title={salad.title}
+                                price={salad.price}
+                                tags={salad.tags}
+                                stripePriceId={salad.stripePriceId}
+
+                                onClick={() => handleItemClick(salad)} 
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {selectedItem && isModalOpen && (
+                <Item
+                title={selectedItem.title}
+                price={selectedItem.price}
+                tags={selectedItem.tags}
+                stripePriceId={selectedItem.stripePriceId}
+                onClose={closeModal} // Pass the closeModal function to the modal
+                onAddToCart={() => handleAddToCart(selectedItem)} // Pass the callback to add to the cart
+
+                />
+            )}
         </div>
+
 
     );
 };

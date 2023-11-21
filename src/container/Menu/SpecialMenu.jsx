@@ -10,7 +10,6 @@ const SpecialMenu = ({ addToCart }) => {
   const navigate = useNavigate();
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // State for controlling the modal
-  //const [cart, setCart] = useState([]);
   const [localCart, setLocalCart] = useState([]); // Local cart state for SpecialMenu
 
   const handleViewMoreClick = () => {

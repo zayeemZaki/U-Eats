@@ -3,11 +3,11 @@ import { AboutUs, Chef, FindUs, Footer, FullMenu} from '../../container';
 import { Navbar } from '../../components';
 
 
-const MenuPage = () => {
+const MenuPage = ({addToCart}) => {
   return (
     <div>
       <Navbar />
-      <FullMenu />
+      <FullMenu addToCart={addToCart}/>
       <Footer />
     </div>
   );
