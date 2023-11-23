@@ -10,7 +10,7 @@ const Cart = ({ cart, setCartData }) => {
   const navigate = useNavigate();
 
   const handleContinueShopping = () => {
-    navigate('/');
+    navigate('/MenuPage');
   };
 
   const handleCheckOut = async () => {
