@@ -8,6 +8,12 @@
   align-items: center;
 }
 
+.flex__right {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
 .app__bg {
   background: url('./assets/bg.png');
   background-position: center;

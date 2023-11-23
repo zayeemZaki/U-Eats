@@ -60,7 +60,7 @@ module.exports = {
       "tags": [
         "Describe the item"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3OJFGH3BedVinq6jtEHHZ"
     },
     {
       "title": "Cheese Sticks",
@@ -68,7 +68,7 @@ module.exports = {
       "tags": [
         "Describe the item"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3P8FGH3BedVinxKZDYFMF"
     },
     {
       "title": "Onion Rings",
@@ -76,7 +76,7 @@ module.exports = {
       "tags": [
         "Describe the item"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3PwFGH3BedVinP93qeBct"
     },
     {
       "title": "Cheese Cubes",
@@ -84,7 +84,7 @@ module.exports = {
       "tags": [
         "Describe the item"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3QnFGH3BedVin2UHg5lg5"
     },
     {
       "title": "Small Hummus",
@@ -92,7 +92,7 @@ module.exports = {
       "tags": [
         "Describe the item"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3ROFGH3BedVinO1lY0zQx"
     },
     {
       "title": "Large Hummus",
@@ -100,7 +100,7 @@ module.exports = {
       "tags": [
         "Describe the item"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3SJFGH3BedVinjzCNvIjZ"
     },
     {
       "title": "Grape Leaves",
@@ -108,7 +108,7 @@ module.exports = {
       "tags": [
         "Describe the item"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3SiFGH3BedVin24Kv56E9"
     },
     {
       "title": "Gyro Fries",
@@ -116,34 +116,34 @@ module.exports = {
       "tags": [
         "Describe the item"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3T9FGH3BedVinQ5KtSAG1"
     }
   ],
 
   "wings": [
     {
-      "title": "Rocket Chicken",
+      "title": "Rocket Chicken - 10",
       "price": "$10",
       "tags": [
         "10 Wings"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OEJtuFGH3BedVinFu2FTAZb"
     },
     {
-      "title": "Rocket Chicken",
+      "title": "Rocket Chicken - 20",
       "price": "$19",
       "tags": [
         "20 Wings"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3UpFGH3BedVinnVEM3jHP"
     },
     {
-      "title": "Rocket Chicken",
+      "title": "Rocket Chicken - 50",
       "price": "$45",
       "tags": [
         "50 Wings"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3VaFGH3BedVinyjmc7IUJ"
     },
     {
       "title": "Chunky Chicken",
@@ -151,23 +151,23 @@ module.exports = {
       "tags": [
         "1 Pound of our Halal boneless chicken seasoned and fried to perfection"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OEK0QFGH3BedVinDhNeqch0"
     },
     {
-      "title":  "Chix Strips",
+      "title":  "Chix Strips - 3",
       "price": "$5",
       "tags": [
         "3 piece of our Halal Chicken Tenders fried to a golden crisp"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OEK1PFGH3BedVinYTfgkg4F"
     },
     {
-      "title":  "Chix Strips",
+      "title":  "Chix Strips - 6",
       "price": "$9",
       "tags": [
         "6 piece of our Halal Chicken Tenders fried to a golden crisp"
       ],
-      "stripePriceId": "Unique Id from stripe"
+      "stripePriceId": "price_1OF3XHFGH3BedVinagDH6RZL"
     }
   ],
 
@@ -194,7 +194,7 @@ module.exports = {
       "tags": [
         "Perfectly seasoned chicken breast(Grilled or Crispy), letttuce, tomato, & mayo served on a bun"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3aAFGH3BedVin499HZvtt"
     },
     {
       "title": "Gyro",
@@ -202,7 +202,7 @@ module.exports = {
       "tags": [
         "Your choice of lamb gyro meat or chicken, onions, tomatoes, and tzatziki sauce wrapped in fresh pita bread"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3aZFGH3BedVinmY7mO0bp"
     },
     {
       "title": "Patty Melt",
@@ -210,7 +210,7 @@ module.exports = {
       "tags": [
         "Our Halal beef patty, sauteed onions, American & Swiss cheese on rye bread"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3b6FGH3BedVinYaiEptLO"
     },
     {
       "title": "Fish Sandwich",
@@ -221,6 +221,7 @@ module.exports = {
       "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
     }
   ],
+
   "burgers": [
     {
       "title": "Single Burger",
@@ -228,7 +229,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3bjFGH3BedVinfolvDpZc"
     },
     {
       "title": "Double Burger",
@@ -236,7 +237,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3cWFGH3BedViniuBaf90V"
     }, 
     {
       "title": "Add Fries",
@@ -244,7 +245,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3czFGH3BedVinW7cRVCW6"
     },
     {
       "title": "Add Turkey",
@@ -252,7 +253,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3dTFGH3BedVinYikZ9OHa"
     },
     {
       "title": "Add Beef Bacon",
@@ -260,7 +261,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3dyFGH3BedVinjauyCBQ9"
     },
     {
       "title": "Add Cheese",
@@ -268,7 +269,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3eMFGH3BedVinB697aaMR"
     }
   ],
 
@@ -279,7 +280,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3eyFGH3BedVinjiV93J71"
     },
     {
       "title": "Large House Salad",
@@ -287,7 +288,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3fQFGH3BedVin9GRypX1Q"
     },
     {
       "title": "Small Greek Salad",
@@ -295,7 +296,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3ftFGH3BedVinPvKmK7TU"
     },
     {
       "title": "Large Greek Salad",
@@ -303,7 +304,7 @@ module.exports = {
       "tags": [
         " Write description"
       ],
-      "stripePriceId": "price_1OEK3EFGH3BedVinWMUvHS9Q"
+      "stripePriceId": "price_1OF3gKFGH3BedVinAenw346k"
     }
   ]
 

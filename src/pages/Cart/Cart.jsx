@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { SubHeading, MenuItem, Item } from '../../components';
+import { data, images } from '../../constants';
+import { Footer } from '../../container';
+import { Navbar } from '../../components';
+import './Cart.css';
 
 const Cart = ({ cart, setCartData }) => {
   const navigate = useNavigate();
@@ -48,30 +53,44 @@ const Cart = ({ cart, setCartData }) => {
 
   return (
     <div>
-      <h1>Shopping Cart Page</h1>
-
+      <Navbar/>
+      <div className="app__cart">
+        <div className="app__cart-Title flex__center section__padding">
+          <img src={images.spoon} alt="about_spoon" className="spoon__img flex__center" />
+          <h1 className="headtext__cormorant">Shopping Cart</h1>
+        </div>
+      
+      <div className="app__cart-items flex__left section__padding">
       {cart.map((item, index) => (
         <div key={index}>
-          <h2>{item.title}</h2>
+          <img src={images.spoon} alt="about_spoon" className="spoon__img" />
+          <h2 style={{color: 'yellow'}}>{item.title}</h2>
           <p>Price: {item.price}</p>
           <p>Quantity: {item.quantity}</p>
           <p>Tags: {item.tags.join(', ')}</p>
         </div>
+        
       ))}
-
-      <div>
-        <p>Total Price: {totalPrice}</p>
       </div>
 
-      <button type="button" className="custom__button" onClick={handleContinueShopping}>
+      <div>
+        <p className="app__cart-total flex__right section__padding" >Total Price: {totalPrice}</p>
+      </div>
+      
+      
+      <div className="app__cart-buttons flex__center section__padding">
+      <button type="button" className="custom__button-cart" onClick={handleContinueShopping}>
         Continue Shopping
       </button>
-      <button type="button" className="custom__button" onClick={handleCheckOut}>
+      <button type="button" className="custom__button-cart" onClick={handleCheckOut}>
         Checkout
       </button>
-      <button type="button" className="custom__button" onClick={handleClearCart}>
+      <button type="button" className="custom__button-cart" onClick={handleClearCart}>
         Clear Cart
       </button>
+      </div>
+      </div>
+      <Footer />
     </div>
   );
 };
