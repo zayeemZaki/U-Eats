@@ -1,20 +1,19 @@
 require("dotenv").config();
 
 const express = require("express");
-const app = express();
-app.use(express.json());
-
-app.use(express.static("public"));
-
 const fs = require('fs');
 const path = require('path');
-
 const cors = require("cors");
-app.use(cors());
-
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
-
 const data = require('./src/constants/data'); // Import your existing data
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.static("public"));
+
+
 
 app.get('/api/specialWings', (req, res) => {
   res.json(data.specialWings);
@@ -53,6 +52,7 @@ function saveDataToFile(data) {
 
   console.log('Data saved to file:', filePath);
 }
+
 app.delete('/api/deleteItem', (req, res) => {
   const { category, deleteItem } = req.body;
 
@@ -67,10 +67,12 @@ app.delete('/api/deleteItem', (req, res) => {
 
       // Save the updated data to the file
       saveDataToFile(data);
-    } else {
+    } 
+    else {
       console.log(`Item "${deleteItem}" not found in specialWings`);
     }
-  } else if (category === 'specialSandwiches') {
+  } 
+  else if (category === 'specialSandwiches') {
     // Find the index of the item to delete
     const indexToDelete = data.specialSandwiches.findIndex(item => item.title === deleteItem);
 
@@ -81,7 +83,8 @@ app.delete('/api/deleteItem', (req, res) => {
 
       // Save the updated data to the file
       saveDataToFile(data);
-    } else {
+    } 
+    else {
       console.log(`Item "${deleteItem}" not found in specialSandwiches`);
     }
   }
@@ -117,7 +120,8 @@ app.post('/create-checkout-session', async (req, res) => {
     console.log('Checkout session created:', session);
 
     res.json({ id: session.id, url: session.url });
-  } catch (error) {
+  } 
+  catch (error) {
     // Log detailed error information for debugging
     console.error('Error creating checkout session:', error);
 

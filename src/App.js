@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { Cart, Home, MenuList, AdminDashboard, MenuPage } from './pages/index.js';
-import { FullMenu } from './container/index.js';
 
 import './App.css';
 
@@ -36,7 +34,8 @@ const App = () => {
   
       // Save updated cart data to localStorage
       localStorage.setItem('cartData', JSON.stringify(updatedCart));
-    } else {
+    } 
+    else {
       // If the item is not in the cart, add it with quantity 1
       const newCartData = [...cartData, { ...item, quantity: 1 }];
       setCartData(newCartData);
@@ -54,8 +53,6 @@ const App = () => {
           <Route path="/" element={<Home addToCart={addToCart} />} />
           <Route path="/cart" element={<Cart cart={cartData} addToCart={addToCart} setCartData={setCartData} />} />
           <Route path="/admin" element={<AdminDashboard />} />
-
-          <Route path="/menuList" element={<MenuList />} />
           <Route path="/menuPage" element={<MenuPage addToCart={addToCart} />} />
         </Routes>
       </div>
