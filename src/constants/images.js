@@ -21,7 +21,7 @@ import sign from '../assets/sign.png';
 import quote from '../assets/quote.png';
 import gericht from '../assets/gericht.png';
 import ueatslogo from '../assets/ueatslogo.png';
-import ueatslogotransparent from '../assets/ueatslogotrnsprnt.png';
+import ueatslogotransparent from '../assets/ueatslogotrnsprnt.PNG';
 
 export default {
   bg,
