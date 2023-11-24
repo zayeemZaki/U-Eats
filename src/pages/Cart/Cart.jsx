@@ -55,16 +55,22 @@ const Cart = ({ cart, setCartData }) => {
     <div>
       <Navbar/>
       <div className="app__cart">
-        <div className="app__cart-Title flex__center section__padding">
-          <img src={images.spoon} alt="about_spoon" className="spoon__img flex__center" />
-          <h1 className="headtext__cormorant">Shopping Cart</h1>
+        <div className="app__cart-Title flex__center ">
+          <img src={images.spoon} alt="about_spoon" className="spoon__img flex__center  " />
+          <h1 className="headtext__cormorant-cart">Shopping Cart</h1>
+          
         </div>
       
-      <div className="app__cart-items flex__left section__padding">
+        
+
+      <div className="app__cart-items flex__center section__padding">
+      <img src={images.cart} className="cart__img flex__center" />
       {cart.map((item, index) => (
         <div key={index}>
-          <img src={images.spoon} alt="about_spoon" className="spoon__img" />
-          <h2 style={{color: 'yellow'}}>{item.title}</h2>
+          <div className="spoon__container section__padding">
+            <img src={images.spoon} className="spoon__img" />
+          </div>
+          <h2 style={{color: 'var(--color-golden)'}}>{item.title}</h2>
           <p>Price: {item.price}</p>
           <p>Quantity: {item.quantity}</p>
           <p>Tags: {item.tags.join(', ')}</p>

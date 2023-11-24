@@ -4,7 +4,7 @@
 }
 
 .app__cart-Title {
-    margin-bottom: 2rem;
+    margin-bottom: 0rem;
     text-align: center;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
     font-size: 35px;
     line-height: 58.5px;
     letter-spacing: 0.04em;
-    color: var(--color-white);
+    color: var(--color-cream);
     flex-direction: column;
     
 }
@@ -50,4 +50,26 @@
       border: none;
       outline: none;
       cursor: pointer;
+  }
+
+  .cart__img {
+    text-align: center;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .headtext__cormorant-cart {
+    font-family: var(--font-base);
+    color: var(--color-golden);
+    font-size: 64px;
+    line-height: 80px;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+  }
+
+  .spoon__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

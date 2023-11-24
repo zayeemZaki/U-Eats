@@ -22,6 +22,8 @@ import quote from '../assets/quote.png';
 import gericht from '../assets/gericht.png';
 import ueatslogo from '../assets/ueatslogo.png';
 import ueatslogotransparent from '../assets/ueatslogotrnsprnt.PNG';
+import cart from '../assets/Cart.PNG';
+import U from '../assets/U.PNG';
 
 export default {
   bg,
@@ -48,4 +50,6 @@ export default {
   gericht,
   ueatslogo,
   ueatslogotransparent,
+  cart,
+  U,
 };
