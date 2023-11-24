@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
-import { Cart, Home, MenuList, AdminDashboard, MenuPage } from './pages/index.js';
+import { Cart, Home, MenuList, AdminDashboard, MenuPage, LoginPage } from './pages/index.js';
+import { AuthProvider, useAuth } from './AuthContext';
 
 import './App.css';
 
 const stripePromise = loadStripe('pk_test_51OCquvFGH3BedVinqfg7MNsxICmQfsflg0CEXmc8v16ymT1nOVG5N1UpHmjiOIaZ4v79WdP2iGf85kWUZkijl0BK00E0T2MXWk'); // Replace with your actual publishable key
+
+const PrivateRoute = ({ element, ...rest }) => {
+  const { isAuthenticated } = useAuth();
+
+  return isAuthenticated ? element : <Navigate to="/login" />;
+};
+
 
 const App = () => {
   const [cartData, setCartData] = useState([]);
@@ -47,16 +55,22 @@ const App = () => {
   
 
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route path="/" element={<Home addToCart={addToCart} />} />
-          <Route path="/cart" element={<Cart cart={cartData} addToCart={addToCart} setCartData={setCartData} />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/menuPage" element={<MenuPage addToCart={addToCart} />} />
-        </Routes>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<Home addToCart={addToCart} />} />
+            <Route path="/cart" element={<Cart cart={cartData} addToCart={addToCart} setCartData={setCartData} />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route
+              path="/admin"
+              element={<PrivateRoute element={<AdminDashboard />} />}
+            />
+            <Route path="/menuPage" element={<MenuPage addToCart={addToCart} />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 };
 
