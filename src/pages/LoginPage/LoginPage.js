@@ -9,13 +9,13 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
+    const adminUsername = process.env.REACT_APP_ADMIN_USERNAME;
+    const adminPassword = process.env.REACT_APP_ADMIN_PASSWORD;
 
-    if (username === 'admin' && password === 'password') {
-      login('admin', 'admin'); 
+    if (username === adminUsername && password === adminPassword) {
+      login('admin', 'admin');
       navigate('/admin');
-
-    } 
-    else {
+    } else {
       console.log('Invalid credentials');
     }
   };
