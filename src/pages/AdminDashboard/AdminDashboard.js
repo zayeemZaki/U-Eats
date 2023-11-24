@@ -2,8 +2,12 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useAuth } from '../../AuthContext';
 
 const AdminDashboard = () => {
+
+  const { isAuthenticated, user } = useAuth();
+
   const [operation, setOperation] = useState('add'); // 'add' or 'delete'
   const [item, setItem] = useState({
     title: '',
@@ -51,6 +55,12 @@ const AdminDashboard = () => {
       [name]: value,
     }));
   };
+
+  if (!isAuthenticated || user !== 'admin') {
+    // Redirect or show an error message, e.g., return <Redirect to="/" />;
+    return <div>You are not authorized to access this page.</div>;
+  }
+
 
   return (
     <div>
