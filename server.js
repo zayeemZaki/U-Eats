@@ -112,8 +112,8 @@ app.post('/create-checkout-session', async (req, res) => {
       payment_method_types: ['card'],
       line_items: lineItems,
       mode: 'payment',
-      success_url: 'http://localhost:3000/success', // Replace with  success URL
-      cancel_url: 'http://localhost:3000/cancel', // Replace with  cancel URL
+      success_url: 'http://localhost:3001/success', // Replace with  success URL
+      cancel_url: 'http://localhost:3001/cancel', // Replace with  cancel URL
     });
 
     // Log success and session details for debugging
@@ -130,7 +130,7 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log('Server is running on port 3000');
 });
 
