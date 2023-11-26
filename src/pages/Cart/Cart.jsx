@@ -46,6 +46,14 @@ const Cart = ({ cart, setCartData }) => {
     localStorage.removeItem('cartData');
   };
 
+  const handleMinusQuantity = () => {
+
+  }
+
+  const handleAddQuantity = () => {
+    
+  }
+
   const totalPrice = cart.reduce((acc, item) => {
     const numericPrice = parseFloat(item.price.replace('$', ''));
     return acc + numericPrice * item.quantity;
@@ -72,7 +80,8 @@ const Cart = ({ cart, setCartData }) => {
           </div>
           <h2 style={{color: 'var(--color-golden)'}}>{item.title}</h2>
           <p>Price: {item.price}</p>
-          <p>Quantity: {item.quantity}</p>
+          <p>Quantity: {item.quantity} <button type="button" className="custom__button-Minus" onClick={handleMinusQuantity}>-</button>
+          <button type="button" className="custom__button-Add" onClick={handleAddQuantity}>+</button></p>
           <p>Tags: {item.tags.join(', ')}</p>
         </div>
         

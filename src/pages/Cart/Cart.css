@@ -73,3 +73,32 @@
     justify-content: center;
     align-items: center;
   }
+
+  .custom__button-Minus {
+    background-color: var(--color-crimson);
+      color: var(--color-black);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 20px;
+      font-size: 24px;
+      padding: 0.5rem 0.8rem;
+      border-radius: 1500px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin-right: 5px;
+  }
+
+  .custom__button-Add {
+    background-color: var(--color-crimson);
+      color: var(--color-black);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 20px;
+      font-size: 20px;
+      padding: 0.5rem 0.8rem;
+      border-radius: 1500px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+  }
