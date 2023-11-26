@@ -58,7 +58,7 @@ module.exports = {
       "title": "French Fries",
       "price": "$4.99",
       "tags": [
-        "Describe the item"
+        "Seasoned Fries"
       ],
       "stripePriceId": "price_1OF3OJFGH3BedVinq6jtEHHZ"
     },
@@ -66,7 +66,7 @@ module.exports = {
       "title": "Cheese Sticks",
       "price": "$8.99",
       "tags": [
-        "Describe the item"
+        "Cheese sticks"
       ],
       "stripePriceId": "price_1OF3P8FGH3BedVinxKZDYFMF"
     },
@@ -74,7 +74,7 @@ module.exports = {
       "title": "Onion Rings",
       "price": "$7.99",
       "tags": [
-        "Describe the item"
+        "Fried onion rings"
       ],
       "stripePriceId": "price_1OF3PwFGH3BedVinP93qeBct"
     },
@@ -82,7 +82,7 @@ module.exports = {
       "title": "Cheese Cubes",
       "price": "$10.99",
       "tags": [
-        "Describe the item"
+        "Cheese Cubes"
       ],
       "stripePriceId": "price_1OF3QnFGH3BedVin2UHg5lg5"
     },
@@ -90,7 +90,7 @@ module.exports = {
       "title": "Small Hummus",
       "price": "$7.99",
       "tags": [
-        "Describe the item"
+        "Small in-house made hummus"
       ],
       "stripePriceId": "price_1OF3ROFGH3BedVinO1lY0zQx"
     },
@@ -98,7 +98,7 @@ module.exports = {
       "title": "Large Hummus",
       "price": "$9.99",
       "tags": [
-        "Describe the item"
+        "Large in-house made hummus"
       ],
       "stripePriceId": "price_1OF3SJFGH3BedVinjzCNvIjZ"
     },
@@ -106,7 +106,7 @@ module.exports = {
       "title": "Grape Leaves",
       "price": "$8.99",
       "tags": [
-        "Describe the item"
+        "Grape leaves"
       ],
       "stripePriceId": "price_1OF3SiFGH3BedVin24Kv56E9"
     },
@@ -114,7 +114,7 @@ module.exports = {
       "title": "Gyro Fries",
       "price": "$11.99",
       "tags": [
-        "Describe the item"
+        "Fries with gyro meat"
       ],
       "stripePriceId": "price_1OF3T9FGH3BedVinQ5KtSAG1"
     }
@@ -227,7 +227,7 @@ module.exports = {
       "title": "Single Burger",
       "price": "$9.99",
       "tags": [
-        " Write description"
+        "Single patty burger"
       ],
       "stripePriceId": "price_1OF3bjFGH3BedVinfolvDpZc"
     },
@@ -235,7 +235,7 @@ module.exports = {
       "title": "Double Burger",
       "price": "$12.99",
       "tags": [
-        " Write description"
+        "Double patty burger"
       ],
       "stripePriceId": "price_1OF3cWFGH3BedViniuBaf90V"
     }, 
@@ -243,7 +243,7 @@ module.exports = {
       "title": "Add Fries",
       "price": "$3",
       "tags": [
-        " Write description"
+        "Fries add-on"
       ],
       "stripePriceId": "price_1OF3czFGH3BedVinW7cRVCW6"
     },
@@ -251,7 +251,7 @@ module.exports = {
       "title": "Add Turkey",
       "price": "$3",
       "tags": [
-        " Write description"
+        "Turkey add-on"
       ],
       "stripePriceId": "price_1OF3dTFGH3BedVinYikZ9OHa"
     },
@@ -259,7 +259,7 @@ module.exports = {
       "title": "Add Beef Bacon",
       "price": "$3",
       "tags": [
-        " Write description"
+        "Beef Bacon add-on"
       ],
       "stripePriceId": "price_1OF3dyFGH3BedVinjauyCBQ9"
     },
@@ -267,7 +267,7 @@ module.exports = {
       "title": "Add Cheese",
       "price": "$1",
       "tags": [
-        " Write description"
+        "Cheese add-on"
       ],
       "stripePriceId": "price_1OF3eMFGH3BedVinB697aaMR"
     }
@@ -278,7 +278,7 @@ module.exports = {
       "title": "Small House Salad",
       "price": "$6.99",
       "tags": [
-        " Write description"
+        "House salad"
       ],
       "stripePriceId": "price_1OF3eyFGH3BedVinjiV93J71"
     },
@@ -286,7 +286,7 @@ module.exports = {
       "title": "Large House Salad",
       "price": "$9.99",
       "tags": [
-        " Write description"
+        "House salad"
       ],
       "stripePriceId": "price_1OF3fQFGH3BedVin9GRypX1Q"
     },
@@ -294,7 +294,7 @@ module.exports = {
       "title": "Small Greek Salad",
       "price": "$8.99",
       "tags": [
-        " Write description"
+        "Greek salad"
       ],
       "stripePriceId": "price_1OF3ftFGH3BedVinPvKmK7TU"
     },
@@ -302,7 +302,7 @@ module.exports = {
       "title": "Large Greek Salad",
       "price": "$12.99",
       "tags": [
-        " Write description"
+        "Greek salad"
       ],
       "stripePriceId": "price_1OF3gKFGH3BedVinAenw346k"
     }
