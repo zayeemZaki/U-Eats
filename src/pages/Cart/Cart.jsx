@@ -52,6 +52,11 @@ const Cart = ({ cart, setCartData }) => {
       newCart[index].quantity--;
       setCartData(newCart);
     }
+    else{
+      newCart.splice(index, 1);
+      setCartData(newCart);
+  
+    }
   }
 
   const handleAddQuantity = (index) => {
