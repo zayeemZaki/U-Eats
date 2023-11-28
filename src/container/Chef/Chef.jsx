@@ -7,7 +7,7 @@ import './Chef.css';
 const Chef = () => (
   <div className="app__bg app__wrapper section__padding">
     <div className="app__wrapper_img app__wrapper_img-reverse">
-      <img src={images.chef} alt="chef_image" />
+      <img src={images.owner} alt="chef_image" />
     </div>
     <div className="app__wrapper_info">
       <SubHeading title="Owner's word" />

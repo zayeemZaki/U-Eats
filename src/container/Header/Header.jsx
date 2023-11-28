@@ -31,7 +31,7 @@ return(
     </div>
 
     <div className="app__wrapper_img">
-      <img src={images.welcome} alt="header_img" />
+      <img src={images.key} alt="header_img" />
     </div>
   </div>
   ); 

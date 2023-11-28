@@ -24,6 +24,9 @@ import ueatslogo from '../assets/ueatslogo.png';
 import ueatslogotransparent from '../assets/ueatslogotrnsprnt.PNG';
 import cart from '../assets/Cart.PNG';
 import U from '../assets/U.PNG';
+import key from '../assets/key.png'
+import find from '../assets/Find-us.png'
+import owner from '../assets/owner.jpg'
 
 export default {
   bg,
@@ -52,4 +55,7 @@ export default {
   ueatslogotransparent,
   cart,
   U,
+  key,
+  find,
+  owner,
 };
