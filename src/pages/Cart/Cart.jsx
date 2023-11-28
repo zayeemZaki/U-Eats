@@ -46,19 +46,27 @@ const Cart = ({ cart, setCartData }) => {
     localStorage.removeItem('cartData');
   };
 
-  const handleMinusQuantity = () => {
-
+  const handleMinusQuantity = (index) => {
+    const newCart = [...cart];
+    if (newCart[index].quantity > 1) {
+      newCart[index].quantity--;
+      setCartData(newCart);
+    }
   }
 
-  const handleAddQuantity = () => {
-    
+  const handleAddQuantity = (index) => {
+    const newCart = [...cart];
+    newCart[index].quantity++;
+    setCartData(newCart);
   }
 
   const totalPrice = cart.reduce((acc, item) => {
     const numericPrice = parseFloat(item.price.replace('$', ''));
     return acc + numericPrice * item.quantity;
   }, 0);
-
+  
+  const formattedTotalPrice = totalPrice.toFixed(2); // Round to two decimal places
+  
   return (
     <div>
       <Navbar/>
@@ -80,17 +88,17 @@ const Cart = ({ cart, setCartData }) => {
           </div>
           <h2 style={{color: 'var(--color-golden)'}}>{item.title}</h2>
           <p>Price: {item.price}</p>
-          <p>Quantity: {item.quantity} <button type="button" className="custom__button-Minus" onClick={handleMinusQuantity}>-</button>
-          <button type="button" className="custom__button-Add" onClick={handleAddQuantity}>+</button></p>
+          <p>Quantity: {item.quantity} <button type="button" className="custom__button-Minus" onClick={() => handleMinusQuantity(index)}> - </button>
+          <button type="button" className="custom__button-Add" onClick={() => handleAddQuantity(index)}> + </button></p>
           <p>Tags: {item.tags.join(', ')}</p>
         </div>
         
       ))}
       </div>
 
-      <div>
-        <p className="app__cart-total flex__right section__padding" >Total Price: {totalPrice}</p>
-      </div>
+      <p className="app__cart-total flex__right section__padding">
+        Total Price: {formattedTotalPrice}
+      </p>
       
       
       <div className="app__cart-buttons flex__center section__padding">
