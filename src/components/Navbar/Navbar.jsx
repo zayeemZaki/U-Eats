@@ -20,7 +20,7 @@ const Navbar = () => {
       </ul>
       
       <div className="app__navbar-login">
-        <a href="/cart" className="p__opensans">
+        <a href="/cart" className="p__opensans" style={{ fontSize: '24px' }}>
           <FaShoppingCart />
         </a>
       </div>
