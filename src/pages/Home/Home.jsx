@@ -10,7 +10,6 @@ const Home = ({ addToCart }) => {
       <AboutUs />
       <SpecialMenu addToCart={addToCart} />
       <Chef />
-      <Gallery />
       <FindUs />
       <Footer />
     </div>
