@@ -42,7 +42,11 @@ const Footer = () => (
     </div>
 
     <div className="footer__copyright">
-      <p className="p__opensans">All rights reserved - Zayeem & Usman </p>
+      <p className="p__opensans">
+        All rights reserved - 
+        <a href="https://www.linkedin.com/in/zayeem-zaki/" target="_blank" rel="noopener noreferrer"> Zayeem</a> & 
+        <a href="https://www.linkedin.com/in/usman-khalid-8b3176220/" target="_blank" rel="noopener noreferrer"> Usman</a>
+      </p>
     </div>
 
   </div>
