@@ -22,13 +22,8 @@ import quote from '../assets/quote.png';
 import gericht from '../assets/gericht.png';
 import ueatslogo from '../assets/ueatslogo.png';
 import ueatslogotrnsprnt from '../assets/ueatslogotrnsprnt.png';
-<<<<<<< HEAD
-import cart from '../assets/Cart.PNG';
-import U from '../assets/U.PNG';
-=======
 import cart from '../assets/Cart.png';
 import U from '../assets/U.png';
->>>>>>> 76e558e (image names changed)
 import key from '../assets/key.png'
 import find from '../assets/Find-us.png'
 import owner from '../assets/owner.jpg'
