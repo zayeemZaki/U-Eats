@@ -21,7 +21,7 @@ import sign from '../assets/sign.png';
 import quote from '../assets/quote.png';
 import gericht from '../assets/gericht.png';
 import ueatslogo from '../assets/ueatslogo.png';
-import ueatslogotrnsprnt from '../assets/ueatslogotrnsprnt.png';
+import ueatslogotransparent from '../assets/ueatslogotrnsprnt2.png';
 import cart from '../assets/Cart.png';
 import U from '../assets/U.png';
 import key from '../assets/key.png'
@@ -52,7 +52,7 @@ export default {
   quote,
   gericht,
   ueatslogo,
-  ueatslogotrnsprnt,
+  ueatslogotransparent,
   cart,
   U,
   key,
