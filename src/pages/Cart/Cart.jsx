@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SubHeading, MenuItem, Item } from '../../components';
@@ -6,12 +5,6 @@ import { data, images } from '../../constants';
 import { Footer } from '../../container';
 import { Navbar } from '../../components';
 import './Cart.css';
-import Amplify from "aws-amplify"
-import awsconfig from "./src/aws-exports"
-
-Amplify.configure(awsconfig)
-
-import { API } from 'aws-amplify'
 
 const Cart = ({ cart, setCartData }) => {
   const navigate = useNavigate();
@@ -22,15 +15,23 @@ const Cart = ({ cart, setCartData }) => {
 
   const handleCheckOut = async () => {
     try {
-      const fetchSession = async () => {
-        const apiName = 'api391498c0'
-        const apiEndpoint = '/cart'
-        body: JSON.stringify({ cart })
+      const response = await fetch('http://localhost:3001/create-checkout-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cart }),
+      });
       
-        const session = await API.post(apiName, apiEndpoint, { body })
-        return session
-        window.location.href = session.url;
+  
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Error response from server:', errorText);
+        throw new Error('Failed to create checkout session');
       }
+  
+      const session = await response.json();
+      window.location.href = session.url;
     } catch (error) {
       console.error(error);
       // Handle the error as needed, e.g., show an error message to the user
@@ -123,7 +124,6 @@ const Cart = ({ cart, setCartData }) => {
 };
 
 export default Cart;
-
 
 
 
