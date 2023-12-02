@@ -21,10 +21,29 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
+    },
+    "stripeAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "stripeCheckout"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
     }
   },
   "function": {
     "cart": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "stripeCheckout": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -49,6 +68,22 @@
         {
           "category": "function",
           "resourceName": "cart"
+        }
+      ]
+    },
+    "AMPLIFY_function_stripeCheckout_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "stripeCheckout"
+        }
+      ]
+    },
+    "AMPLIFY_function_stripeCheckout_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "stripeCheckout"
         }
       ]
     },

@@ -5,17 +5,23 @@ import { data, images } from '../../constants';
 import { Footer } from '../../container';
 import { Navbar } from '../../components';
 import './Cart.css';
+import { Amplify } from 'aws-amplify';
+import awsconfig from '../../aws-exports'
+import { API } from 'aws-amplify'
+
+Amplify.configure(awsconfig)
+
 
 const Cart = ({ cart, setCartData }) => {
   const navigate = useNavigate();
 
   const handleContinueShopping = () => {
-    navigate('/MenuPage');
+    navigate('/menuPage');
   };
 
   const handleCheckOut = async () => {
     try {
-      const response = await fetch('http://localhost:3001/create-checkout-session', {
+      const response = await fetch('/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +38,8 @@ const Cart = ({ cart, setCartData }) => {
   
       const session = await response.json();
       window.location.href = session.url;
-    } catch (error) {
+    } 
+    catch (error) {
       console.error(error);
       // Handle the error as needed, e.g., show an error message to the user
     }

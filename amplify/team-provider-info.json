@@ -20,10 +20,15 @@
         "cart": {
           "deploymentBucketName": "amplify-ueats-dev-162429-deployment",
           "s3Key": "amplify-builds/cart-3043624742632f75424d-build.zip"
+        },
+        "stripeCheckout": {
+          "deploymentBucketName": "amplify-ueats-dev-162429-deployment",
+          "s3Key": "amplify-builds/stripeCheckout-357658594e7169574132-build.zip"
         }
       },
       "api": {
-        "api391498c0": {}
+        "api391498c0": {},
+        "stripeAPI": {}
       }
     }
   }

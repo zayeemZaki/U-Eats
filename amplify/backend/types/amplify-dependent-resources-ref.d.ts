@@ -4,10 +4,22 @@ export type AmplifyDependentResourcesAttributes = {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
+    },
+    "stripeAPI": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
     }
   },
   "function": {
     "cart": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "stripeCheckout": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

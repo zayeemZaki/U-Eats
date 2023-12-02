@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
-app.post('/create-checkout-session', async function(req, res) {
+app.post('/checkout', async function(req, res) {
   try {
     const { cart } = req.body;
 
