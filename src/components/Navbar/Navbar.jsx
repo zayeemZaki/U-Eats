@@ -72,6 +72,12 @@ const Navbar = () => {
     navigate('/menuPage');
   };
 
+  const handleCartButtonClick = () => {
+    // Add any custom logic you need when the "Cart" button is clicked
+    // For example, you can navigate to the "/cart" route
+    navigate('/cart');
+  };
+
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
@@ -81,7 +87,6 @@ const Navbar = () => {
         <li className="p__opensans"><a href="/#home">Home</a></li>
         <li className="p__opensans"><a href="/#about">About</a></li>
         <li className="p__opensans">
-         
           <button className="menu-button" onClick={handleMenuButtonClick}>
             Menu
           </button>
@@ -90,33 +95,16 @@ const Navbar = () => {
       </ul>
 
       <div className="app__navbar-login">
-        <a href="/cart" className="p__opensans" style={{ fontSize: '24px' }}>
+        {/* Use button instead of anchor for cart */}
+        <button className="p__opensans" style={{ fontSize: '24px' }} onClick={handleCartButtonClick}>
           <FaShoppingCart />
-        </a>
+        </button>
       </div>
 
-      <div className="app__navbar-smallscreen">
-        <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
-
-        {toggleMenu && (
-          <div className="app__navbar-smallscreen_overlay flex__center slide-bottom">
-            <MdOutlineRestaurantMenu fontSize={27} className="overlay__close" onClick={() => setToggleMenu(false)} />
-            <ul className="app__navbar-smallscreen_links">
-              <li><a href="/#home" onClick={() => setToggleMenu(false)}>Home</a></li>
-              <li><a href="/#about" onClick={() => setToggleMenu(false)}>About</a></li>
-              <li>
-                
-                <button className="menu-button" onClick={() => { setToggleMenu(false); handleMenuButtonClick(); }}>
-                  Menu
-                </button>
-              </li>
-              <li><a href="/#contact" onClick={() => setToggleMenu(false)}>Contact</a></li>
-            </ul>
-          </div>
-        )}
-      </div>
+      {/* Rest of your code... */}
     </nav>
   );
 };
 
 export default Navbar;
+
