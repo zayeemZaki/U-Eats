@@ -1,4 +1,4 @@
-/*
+
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
@@ -50,9 +50,9 @@ const Navbar = () => {
 };
 
 export default Navbar;
-*/
 
 
+/*
 
 import React from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -81,7 +81,7 @@ const Navbar = () => {
         <li className="p__opensans"><a href="/#home">Home</a></li>
         <li className="p__opensans"><a href="/#about">About</a></li>
         <li className="p__opensans">
-          {/* Replace Link with a button */}
+         
           <button className="menu-button" onClick={handleMenuButtonClick}>
             Menu
           </button>
@@ -105,7 +105,7 @@ const Navbar = () => {
               <li><a href="/#home" onClick={() => setToggleMenu(false)}>Home</a></li>
               <li><a href="/#about" onClick={() => setToggleMenu(false)}>About</a></li>
               <li>
-                {/* Replace Link with a button */}
+                
                 <button className="menu-button" onClick={() => { setToggleMenu(false); handleMenuButtonClick(); }}>
                   Menu
                 </button>
@@ -120,3 +120,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+*/
