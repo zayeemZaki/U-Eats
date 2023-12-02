@@ -8,6 +8,8 @@ import './App.css';
 
 const stripePromise = loadStripe('pk_test_51OCquvFGH3BedVinqfg7MNsxICmQfsflg0CEXmc8v16ymT1nOVG5N1UpHmjiOIaZ4v79WdP2iGf85kWUZkijl0BK00E0T2MXWk'); // Replace with your actual publishable key
 
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+
 const PrivateRoute = ({ element, ...rest }) => {
   const { isAuthenticated } = useAuth();
 

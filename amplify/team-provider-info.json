@@ -19,7 +19,7 @@
         },
         "cart": {
           "deploymentBucketName": "amplify-ueats-dev-162429-deployment",
-          "s3Key": "amplify-builds/cart-2b517435356261346165-build.zip"
+          "s3Key": "amplify-builds/cart-3043624742632f75424d-build.zip"
         }
       },
       "api": {
