@@ -10,6 +10,21 @@
       "StackName": "amplify-ueats-dev-162429",
       "StackId": "arn:aws:cloudformation:us-east-1:605774428285:stack/amplify-ueats-dev-162429/03441d30-9090-11ee-98db-12cb37a9d445",
       "AmplifyAppId": "d3h27zhvryb3mz"
+    },
+    "categories": {
+      "function": {
+        "ueats48be25a9": {
+          "deploymentBucketName": "amplify-ueats-dev-162429-deployment",
+          "s3Key": "amplify-builds/ueats48be25a9-4a6b7672386251526a47-build.zip"
+        },
+        "cart": {
+          "deploymentBucketName": "amplify-ueats-dev-162429-deployment",
+          "s3Key": "amplify-builds/cart-2b517435356261346165-build.zip"
+        }
+      },
+      "api": {
+        "api391498c0": {}
+      }
     }
   }
 }
