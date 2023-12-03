@@ -9,7 +9,7 @@ import './Cart.css';
 import '@stripe/stripe-js';
 import { Amplify } from "aws-amplify";
 import awsconfig from "../../aws-exports";
-import  API from 'aws-amplify'
+import  { post } from 'aws-amplify/api';
 import { loadStripe } from '@stripe/stripe-js';
 
 Amplify.configure(awsconfig);
@@ -23,25 +23,39 @@ const Cart = ({ cart, setCartData }) => {
     navigate('/menuPage');
   };
 
+
+
     const handleCheckOut = async () => {
-      const fetchSession = async () => {
-        const apiName = "stripeAPI"
-        const apiEndpoint = "/checkout"
+      try {
+        // Specify your API name and endpoint
+        const apiName = 'stripeAPI';
+        const apiEndpoint = '/checkout';
+    
+        // Construct the request body
         const body = {
-          quantity: 1,
-          client_reference_id: "UniqueString",
-          priceId: "price_1GuxxSBwl4TwghDgsuUB0RGd",
+          cart,
+        };
+    
+        console.log('API Name:', apiName);
+        const response = await post('stripeAPI', apiEndpoint, { body });
+            
+        // Check if the response indicates an error
+        if (!response.ok) {
+          console.error('Error response from server:', response);
+          throw new Error('Failed to create checkout session');
         }
-        const session = await Amplify.API.post(apiName, apiEndpoint, { body })
-        return session
+    
+        // Extract the session information from the response
+        const session = response.data;
+    
+        // Redirect to the checkout session URL
+        window.location.href = session.url;
+      } 
+      catch (error) {
+        console.error(error);
       }
-  
-      const session = await fetchSession()
-      const sessionId = session.id
-      const stripe = await stripePromise
-      stripe.redirectToCheckout({ sessionId })
-    }
-  
+    };
+    
   
   const handleClearCart = () => {
     // Clear the cart by setting it to an empty array
