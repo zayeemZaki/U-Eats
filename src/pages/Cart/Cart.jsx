@@ -7,12 +7,12 @@ import { Footer } from '../../container';
 import { Navbar } from '../../components';
 import './Cart.css';
 import '@stripe/stripe-js';
-import { Amplify } from "aws-amplify";
-import awsconfig from "../../aws-exports";
+// import { Amplify } from "aws-amplify";
+// import awsconfig from "../../aws-exports";
 import  { post } from 'aws-amplify/api';
 import { loadStripe } from '@stripe/stripe-js';
 
-Amplify.configure(awsconfig);
+// Amplify.configure(awsconfig);
 
 const stripePromise = loadStripe('pk_test_51OCquvFGH3BedVinqfg7MNsxICmQfsflg0CEXmc8v16ymT1nOVG5N1UpHmjiOIaZ4v79WdP2iGf85kWUZkijl0BK00E0T2MXWk'); // Replace with your actual publishable key
 
@@ -28,7 +28,7 @@ const Cart = ({ cart, setCartData }) => {
     const handleCheckOut = async () => {
       try {
         // Specify your API name and endpoint
-        const apiName = 'stripeAPI';
+        const apiName = "stripeAPI";
         const apiEndpoint = '/checkout';
     
         // Construct the request body
@@ -37,7 +37,9 @@ const Cart = ({ cart, setCartData }) => {
         };
     
         console.log('API Name:', apiName);
-        const response = await post('stripeAPI', apiEndpoint, { body });
+        console.log('POST :', post);
+
+        const response = await post(apiName, apiEndpoint, { body });
             
         // Check if the response indicates an error
         if (!response.ok) {

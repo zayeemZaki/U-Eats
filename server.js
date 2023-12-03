@@ -14,28 +14,42 @@ app.use(express.static("public"));
 
 
 
-app.post('/checkout', async function(req, res) {
+app.post('/checkout', async (req, res) => {
   try {
+    const { cart } = req.body;
+
+    // Log incoming request data for debugging
+    console.log('Received request with cart:', cart);
+
+    const lineItems = cart.map(item => ({
+      price: item.stripePriceId, // Provide the Price ID for each item
+      quantity: item.quantity,
+    }));
+
+    if (lineItems.length === 0) {
+      return res.status(400).json({ error: 'Cart is empty' });
+    }
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price: req.body.priceId, // The priceId of the product being purchased, retrievable from the Stripe dashboard
-          quantity: req.body.quantity,
-        },
-      ],
-      mode: 'subscription',
-      client_reference_id: req.body.client_reference_id,
-      success_url:
-        'https://example.com/success?session_id={CHECKOUT_SESSION_ID}', // The URL the customer will be directed to after the payment or subscription creation is successful.
-      cancel_url: 'https://example.com/cancel', // The URL the customer will be directed to if they decide to cancel payment and return to your website.
-    })
-    res.json(session)
+      line_items: lineItems,
+      mode: 'payment',
+      success_url: 'http://localhost:3001/success', // Replace with  success URL
+      cancel_url: 'http://localhost:3001/cancel', // Replace with  cancel URL
+    });
+
+    // Log success and session details for debugging
+    console.log('Checkout session created:', session);
+
+    res.json({ id: session.id, url: session.url });
   } 
-  catch (err) {
-    res.json(err)
+  catch (error) {
+    // Log detailed error information for debugging
+    console.error('Error creating checkout session:', error);
+
+    res.status(500).json({ error: 'Internal Server Error' });
   }
-})
+});
 
 
 
