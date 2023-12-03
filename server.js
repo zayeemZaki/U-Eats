@@ -1,4 +1,73 @@
+require("dotenv").config();
 
+const express = require("express");
+const fs = require('fs');
+const path = require('path');
+const cors = require("cors");
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.static("public"));
+
+
+
+app.post('/checkout', async function(req, res) {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        {
+          price: req.body.priceId, // The priceId of the product being purchased, retrievable from the Stripe dashboard
+          quantity: req.body.quantity,
+        },
+      ],
+      mode: 'subscription',
+      client_reference_id: req.body.client_reference_id,
+      success_url:
+        'https://example.com/success?session_id={CHECKOUT_SESSION_ID}', // The URL the customer will be directed to after the payment or subscription creation is successful.
+      cancel_url: 'https://example.com/cancel', // The URL the customer will be directed to if they decide to cancel payment and return to your website.
+    })
+    res.json(session)
+  } 
+  catch (err) {
+    res.json(err)
+  }
+})
+
+
+
+app.listen(() => {
+  console.log('Server is running');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 require("dotenv").config();
 
 const express = require("express");
@@ -135,3 +204,4 @@ app.listen(3001, () => {
   console.log('Server is running on port 3001');
 });
 
+*/

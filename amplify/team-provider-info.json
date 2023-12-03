@@ -13,7 +13,13 @@
     },
     "categories": {
       "function": {
-        "stripeCheckout": {}
+        "stripeCheckout": {
+          "deploymentBucketName": "amplify-ueats-dev-202153-deployment",
+          "s3Key": "amplify-builds/stripeCheckout-357658594e7169574132-build.zip"
+        }
+      },
+      "api": {
+        "stripeAPI": {}
       }
     }
   }
