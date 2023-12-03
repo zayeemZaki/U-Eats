@@ -17,7 +17,7 @@ const Cart = ({ cart, setCartData }) => {
 
   const handleCheckOut = async () => {
     try {
-      const response = await fetch('/checkout', {
+      const response = await fetch('http://localhost:3001/checkout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
