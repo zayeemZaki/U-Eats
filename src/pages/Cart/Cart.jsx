@@ -28,7 +28,7 @@ const Cart = ({ cart, setCartData }) => {
     const handleCheckOut = async () => {
       try {
         // Specify your API name and endpoint
-        const apiName = "stripeAPI";
+        const apiName = 'stripeAPI';
         const apiEndpoint = '/checkout';
     
         // Construct the request body
