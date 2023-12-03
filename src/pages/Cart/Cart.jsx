@@ -11,7 +11,6 @@ import '@stripe/stripe-js';
 // import awsconfig from "../../aws-exports";
 import  { post } from 'aws-amplify/api';
 import { loadStripe } from '@stripe/stripe-js';
-import axios from 'axios';
 
 // Amplify.configure(awsconfig);
 
@@ -27,12 +26,11 @@ const Cart = ({ cart, setCartData }) => {
 
 
     const handleCheckOut = async () => {
-      const apiEndpoint = 'https://wnhir6yaf8.execute-api.us-east-1.amazonaws.com/checkout';
-
+      
       try {
         // Specify your API name and endpoint
         const apiName = 'stripeAPI';
-       // const apiEndpoint = '/checkout';
+        const apiEndpoint = '/checkout';
     
         // Construct the request body
         const body = {
@@ -42,14 +40,13 @@ const Cart = ({ cart, setCartData }) => {
         console.log('API Name:', apiName);
         console.log('POST :', post);
 
-        const response = await axios.post(apiEndpoint, { cart }, {
+        const response = await post(apiName, apiEndpoint, {
+          body,
           headers: {
-            'Content-Type': 'application/json',
-            // Include any additional headers such as API key if required
-            // 'x-api-key': 'your-api-key',
+            'x-api-key': 'BK9HY7av6s888Hl5AxDNw4OfWu8KiwJXawMRxsit', // Replace with your actual API key
           },
-        });
-              // Check if the response indicates an error
+        });            
+        // Check if the response indicates an error
         if (!response.ok) {
           console.error('Error response from server:', response);
           throw new Error('Failed to create checkout session');
