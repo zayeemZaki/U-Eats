@@ -10,6 +10,11 @@
       "StackName": "amplify-ueats-dev-202153",
       "StackId": "arn:aws:cloudformation:us-east-1:605774428285:stack/amplify-ueats-dev-202153/59a669e0-917a-11ee-a6da-0a3c6c045333",
       "AmplifyAppId": "d300pfheqa3rbc"
+    },
+    "categories": {
+      "function": {
+        "stripeCheckout": {}
+      }
     }
   }
 }
