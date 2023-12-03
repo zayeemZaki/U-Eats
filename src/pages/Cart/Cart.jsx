@@ -39,8 +39,12 @@ const Cart = ({ cart, setCartData }) => {
         console.log('API Name:', apiName);
         console.log('POST :', post);
 
-        const response = await post(apiName, apiEndpoint, { body });
-            
+        const response = await post(apiName, apiEndpoint, {
+          body,
+          headers: {
+            'x-api-key': 'BK9HY7av6s888Hl5AxDNw4OfWu8KiwJXawMRxsit', // Replace with your actual API key
+          },
+        });            
         // Check if the response indicates an error
         if (!response.ok) {
           console.error('Error response from server:', response);
