@@ -32,7 +32,7 @@ const Cart = ({ cart, setCartData }) => {
     try {
       // Specify your API name and endpoint
       const apiName = 'stripeAPI';
-      const apiEndpoint = '/dev/checkout';
+      const apiEndpoint = '/checkout';
   
       // Construct the request body
       const body = {
