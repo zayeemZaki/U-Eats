@@ -40,7 +40,7 @@ const Cart = ({ cart, setCartData }) => {
       };
   
       // Make the POST request using fetch
-      const response = await fetch(`${apiName}${apiEndpoint}`, {
+      const response = await fetch(`${apiEndpoint}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
