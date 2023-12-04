@@ -28,40 +28,43 @@ const Cart = ({ cart, setCartData }) => {
     navigate('/menuPage');
   };
 
-    const handleCheckOut = async () => {
-      
-      try {
-        // Specify your API name and endpoint
-        const apiName = 'stripeAPI';
-        const apiEndpoint = '/dev/checkout';
-    
-        // Construct the request body
-        const body = {
-          cart,
-        };
-    
-        console.log('API Name:', apiName);
-        console.log('POST :', post);
-
-        const response = await post(apiName, apiEndpoint, {
-          body
-        });            
-        // Check if the response indicates an error
-        if (!response.ok) {
-          console.error('Error response from server:', response);
-          throw new Error('Failed to create checkout session');
-        }
-    
-        // Extract the session information from the response
-        const session = response.data;
-    
-        // Redirect to the checkout session URL
-        window.location.href = session.url;
-      } 
-      catch (error) {
-        console.error(error);
+  const handleCheckOut = async () => {
+    try {
+      // Specify your API name and endpoint
+      const apiName = 'stripeAPI';
+      const apiEndpoint = '/dev/checkout';
+  
+      // Construct the request body
+      const body = {
+        cart,
+      };
+  
+      // Make the POST request using fetch
+      const response = await fetch(`${apiName}${apiEndpoint}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          // Add any other headers as needed, such as authorization headers
+        },
+        body: JSON.stringify(body),
+      });
+  
+      // Check if the response indicates an error
+      if (!response.ok) {
+        console.error('Error response from server:', response);
+        throw new Error('Failed to create checkout session');
       }
-    };
+  
+      // Extract the session information from the response
+      const session = await response.json();
+  
+      // Redirect to the checkout session URL
+      window.location.href = session.url;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
     
   
   const handleClearCart = () => {
