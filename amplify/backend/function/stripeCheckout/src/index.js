@@ -9,7 +9,32 @@ const server = awsServerlessExpress.createServer(app);
 /**
  * @type {import('@types/aws-lambda').APIGatewayProxyHandler}
  */
-exports.handler = (event, context) => {
-  console.log(`EVENT: ${JSON.stringify(event)}`);
-  return awsServerlessExpress.proxy(server, event, context, 'PROMISE').promise;
+// stripeCheckout.js (serverless function)
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
+
+exports.handler = async (event) => {
+  const { paymentMethodId, cart } = JSON.parse(event.body);
+
+  // Create a Checkout Session
+  const session = await stripe.checkout.sessions.create({
+    payment_method: paymentMethodId,
+    line_items: cart.map((item) => ({
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: item.title,
+        },
+        unit_amount: parseFloat(item.price.replace('$', '')) * 100, // amount in cents
+      },
+      quantity: item.quantity,
+    })),
+    mode: 'payment',
+    success_url: 'https://your-website.com/success',
+    cancel_url: 'https://your-website.com/cancel',
+  });
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ sessionId: session.id }),
+  };
 };

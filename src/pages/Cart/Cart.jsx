@@ -7,15 +7,12 @@ import { Footer } from '../../container';
 import { Navbar } from '../../components';
 import './Cart.css';
 import '@stripe/stripe-js';
-// import { Amplify } from "aws-amplify";
-// import awsconfig from "../../aws-exports";
-import  { post } from 'aws-amplify/api';
+
 import { loadStripe } from '@stripe/stripe-js';
-
-// Amplify.configure(awsconfig);
-
-
-
+import { Elements } from '@stripe/react-stripe-js';
+import { CardElement } from '@stripe/react-stripe-js';
+import { post } from 'aws-amplify/api';
+import { useElements } from '@stripe/react-stripe-js';
 
 
 
@@ -30,40 +27,29 @@ const Cart = ({ cart, setCartData }) => {
 
   const handleCheckOut = async () => {
     try {
-      // Specify your API name and endpoint
-      const apiName = 'stripeAPI';
-      const apiEndpoint = '/checkout';
+      const stripe = await stripePromise;
   
-      // Construct the request body
-      const body = {
-        cart,
-      };
-  
-      // Make the POST request using fetch
-      const response = await fetch(`${apiEndpoint}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          // Add any other headers as needed, such as authorization headers
-        },
-        body: JSON.stringify(body),
+      // Call your serverless function to create a Checkout Session
+      const response = await post('stripeAPI', '/create-checkout-session', {
+        body: { cart },
       });
   
-      // Check if the response indicates an error
-      if (!response.ok) {
-        console.error('Error response from server:', response);
-        throw new Error('Failed to create checkout session');
+      const { sessionId } = response;
+  
+      // Redirect to Stripe Checkout
+      const { error: stripeError } = await stripe.redirectToCheckout({
+        sessionId,
+      });
+  
+      if (stripeError) {
+        console.error(stripeError);
       }
-  
-      // Extract the session information from the response
-      const session = await response.json();
-  
-      // Redirect to the checkout session URL
-      window.location.href = session.url;
-    } catch (error) {
-      console.error(error);
+    } catch (apiError) {
+      console.error(apiError);
     }
   };
+  
+  
   
     
   
