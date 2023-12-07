@@ -30,7 +30,7 @@ const Cart = ({ cart, setCartData }) => {
       const stripe = await stripePromise;
   
       // Call your serverless function to create a Checkout Session
-      const response = await post('stripeAPI', '/create-checkout-session', {
+      const response = await post('stripeAPI', '/checkout', {
         body: { cart },
       });
   
