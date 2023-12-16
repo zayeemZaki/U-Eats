@@ -33,6 +33,9 @@ const Cart = ({ cart, setCartData }) => {
       const response = await post('stripeAPI', '/checkout', {
         body: { cart },
       });
+
+      console.log(response);
+
   
       const { sessionId } = response;
   
