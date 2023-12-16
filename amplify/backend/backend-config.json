@@ -1,20 +1,5 @@
 {
-  "api": {
-    "stripeAPI": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "stripeCheckout"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
-    }
-  },
+  "api": {},
   "function": {
     "stripeCheckout": {
       "build": true,
