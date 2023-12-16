@@ -6,6 +6,7 @@ import { Amplify } from "aws-amplify";
 import amplifyconfig from './amplifyconfiguration.json';
 
 Amplify.configure(amplifyconfig);
+API.configure(awsconfig);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
