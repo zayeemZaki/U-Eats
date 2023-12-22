@@ -1,20 +1,13 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { SubHeading, MenuItem, Item } from '../../components';
-import { data, images } from '../../constants';
+import { images } from '../../constants';
 import { Footer } from '../../container';
 import { Navbar } from '../../components';
+import { loadStripe } from '@stripe/stripe-js';
+import { post } from 'aws-amplify/api';
 import './Cart.css';
 import '@stripe/stripe-js';
-
-import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-import { CardElement } from '@stripe/react-stripe-js';
-import { post } from 'aws-amplify/api';
-import { useElements } from '@stripe/react-stripe-js';
-
-
 
 const stripePromise = loadStripe('pk_test_51OCquvFGH3BedVinqfg7MNsxICmQfsflg0CEXmc8v16ymT1nOVG5N1UpHmjiOIaZ4v79WdP2iGf85kWUZkijl0BK00E0T2MXWk'); // Replace with your actual publishable key
 
@@ -29,14 +22,14 @@ const Cart = ({ cart, setCartData }) => {
     try {
       const stripe = await stripePromise;
   
-      //Call your serverless function to create a Checkout Session
-      const response = await post('stripeAPI', '/checkout', {
-        body: { cart },
+      const response = await post({
+        apiName: "stripeAPI",
+        path: "/checkout",
+        options: {
+          body: { cart },
+        },
       });
-
-
       console.log(response);
-
   
       const { sessionId } = response;
   
@@ -48,20 +41,14 @@ const Cart = ({ cart, setCartData }) => {
       if (stripeError) {
         console.error(stripeError);
       }
-    } catch (apiError) {
+    } 
+    catch (apiError) {
       console.error(apiError);
     }
   };
   
-  
-  
-    
-  
   const handleClearCart = () => {
-    // Clear the cart by setting it to an empty array
     setCartData([]);
-
-    // Clear the cart data in localStorage
     localStorage.removeItem('cartData');
   };
 
@@ -98,11 +85,7 @@ const Cart = ({ cart, setCartData }) => {
         <div className="app__cart-Title flex__center ">
           <img src={images.spoon} alt="about_spoon" className="spoon__img flex__center  " />
           <h1 className="headtext__cormorant-cart">Shopping Cart</h1>
-          
         </div>
-      
-        
-
       <div className="app__cart-items flex__center section__padding">
       <img src={images.cart} className="cart__img flex__center" />
       {cart.map((item, index) => (
@@ -116,14 +99,12 @@ const Cart = ({ cart, setCartData }) => {
           <button type="button" className="custom__button-Add" onClick={() => handleAddQuantity(index)}> + </button></p>
           <p>Tags: {item.tags.join(', ')}</p>
         </div>
-        
       ))}
       </div>
 
       <p className="app__cart-total flex__right section__padding">
         Total Price: {formattedTotalPrice}
       </p>
-      
       
       <div className="app__cart-buttons flex__center section__padding">
       <button type="button" className="custom__button-cart" onClick={handleContinueShopping}>
