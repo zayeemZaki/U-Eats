@@ -13,8 +13,10 @@ const server = awsServerlessExpress.createServer(app);
 const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 exports.handler = async (event) => {
+  console.log("Received event body:", event.body);
+
+
   const { paymentMethodId, cart } = JSON.parse(event.body);
-  console.log("Hello")
 
   // Create a Checkout Session
   const session = await stripe.checkout.sessions.create({

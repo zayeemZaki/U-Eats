@@ -22,7 +22,7 @@ const Cart = ({ cart, setCartData }) => {
     try {
       const stripe = await stripePromise;
   
-const response = await post({
+      const response = await post({
         apiName: "stripeAPI",
         path: "/checkout",
         options: {
@@ -33,17 +33,16 @@ const response = await post({
             cart
           },
         },
-      });
-      
-      console.log("Response:", response);
-      window.LOG_LEVEL = 'DEBUG'
-      const { sessionId } = response;
-  
+      }).response
+
+      const { sessionId } = await response.body.json()
+
       // Redirect to Stripe Checkout
       const { error: stripeError } = await stripe.redirectToCheckout({
         sessionId,
       });
-  
+      console.log("Session Id:", sessionId);
+
       if (stripeError) {
         console.error(stripeError);
       }
