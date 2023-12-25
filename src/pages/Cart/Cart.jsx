@@ -16,12 +16,14 @@ const Cart = ({ cart, setCartData }) => {
 
   const handleContinueShopping = () => {
     navigate('/menuPage');
+    console.log(cart);
   };
 
   const handleCheckOut = async () => {
     try {
       const stripe = await stripePromise;
-  
+      console.log('Cart data:', JSON.stringify(cart));
+
       const response = await post({
         apiName: "stripeAPI",
         path: "/checkout",
@@ -29,28 +31,50 @@ const Cart = ({ cart, setCartData }) => {
           headers: {
             Authorization: 'test'
           },
-          body: { 
-            cart
-          },
+          body: JSON.stringify({ cart }),
         },
       }).response
 
-      const { sessionId } = await response.body.json()
+    // Log the raw response
+    console.log('Raw response:', response);
+
+    if (response.statusCode === 200 && response.body) {
+      // Convert ReadableStream to JSON
+      const reader = response.body.getReader();
+      const stream = new ReadableStream({
+        start(controller) {
+          function pump() {
+            return reader.read().then(({ done, value }) => {
+              if (done) {
+                controller.close();
+                return;
+              }
+              controller.enqueue(value);
+              return pump();
+            });
+          }
+          return pump();
+        }
+      });
+
+      const jsonResponse = await new Response(stream).json();
+      console.log('JSON Parsed response:', jsonResponse);
+
+      const sessionId = jsonResponse.sessionId;
 
       // Redirect to Stripe Checkout
       const { error: stripeError } = await stripe.redirectToCheckout({
         sessionId,
       });
-      console.log("Session Id:", sessionId);
 
       if (stripeError) {
-        console.error(stripeError);
+        console.error('Stripe Error:', stripeError);
       }
-    } 
-    catch (apiError) {
-      console.error(apiError);
     }
-  };
+  } catch (apiError) {
+    console.error('API Error:', apiError);
+  }
+};
   
   const handleClearCart = () => {
     setCartData([]);

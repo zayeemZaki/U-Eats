@@ -18,23 +18,30 @@ exports.handler = async (event) => {
 
   const { paymentMethodId, cart } = JSON.parse(event.body);
 
-  // Create a Checkout Session
+  // First, construct the line_items array from the cart
+  const line_items = cart.map(item => ({
+    price_data: {
+      currency: 'usd',
+      product_data: {
+        name: item.title,
+      },
+      unit_amount: parseFloat(item.price.replace('$', '')) * 100, // amount in cents
+    },
+    quantity: item.quantity,
+  }));
+
+  // Log the line items
+  console.log("Line items:", JSON.stringify(line_items, null, 2));
+
+  // Then, create a Checkout Session using the line_items array
   const session = await stripe.checkout.sessions.create({
     payment_method: paymentMethodId,
-    line_items: cart.map((item) => ({
-      price_data: {
-        currency: 'usd',
-        product_data: {
-          name: item.title,
-        },
-        unit_amount: parseFloat(item.price.replace('$', '')) * 100, // amount in cents
-      },
-      quantity: item.quantity,
-    })),
+    line_items,
     mode: 'payment',
     success_url: 'https://your-website.com/success',
     cancel_url: 'https://your-website.com/cancel',
   });
+
 
   return {
     statusCode: 200,
