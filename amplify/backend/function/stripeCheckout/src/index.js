@@ -17,6 +17,7 @@ exports.handler = async (event) => {
   console.log("Received body:", event.body);
 
   const { paymentMethodId, cart } = JSON.parse(event.body);
+  console.log("Received cart:", JSON.stringify(cart, null, 2));
 
   // First, construct the line_items array from the cart
   const line_items = cart.map(item => ({

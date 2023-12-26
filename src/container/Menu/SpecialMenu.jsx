@@ -53,7 +53,7 @@ const SpecialMenu = ({ addToCart }) => {
                 price={wing.price}
                 tags={wing.tags}
                 stripePriceId={wing.stripePriceId}
-                quantity={1}
+                quantity={wing.quantity}
                 onClick={() => handleItemClick(wing)} 
               />
             ))}
@@ -73,8 +73,8 @@ const SpecialMenu = ({ addToCart }) => {
                 title={sandwich.title}
                 price={sandwich.price}
                 tags={sandwich.tags}
+                quantity={sandwich.quantity}
                 stripePriceId={sandwich.stripePriceId}
-                quantity={1}
                 onClick={() => handleItemClick(sandwich)}
               />
             ))}
@@ -94,7 +94,7 @@ const SpecialMenu = ({ addToCart }) => {
           price={selectedItem.price}
           tags={selectedItem.tags}
           stripePriceId={selectedItem.stripePriceId}
-          quantity={1}
+          quantity={selectedItem.quantity}
           onClose={closeModal} // Pass the closeModal function to the modal
           onAddToCart={() => handleAddToCart(selectedItem)} // Pass the callback to add to the cart
 

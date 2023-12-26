@@ -47,7 +47,7 @@ const FullMenu = ({ addToCart }) => {
                                 price={starter.price}
                                 tags={starter.tags}
                                 stripePriceId={starter.stripePriceId}
-                                quantity={1}
+                                quantity={starter.quantity}
                                 onClick={() => handleItemClick(starter)} 
                             />
                         ))}
@@ -66,7 +66,7 @@ const FullMenu = ({ addToCart }) => {
                                 price={wing.price}
                                 tags={wing.tags}
                                 stripePriceId={wing.stripePriceId}
-                                quantity={1}
+                                quantity={wing.quantity}
                                 onClick={() => handleItemClick(wing)} 
                             />
                         ))}
@@ -85,7 +85,7 @@ const FullMenu = ({ addToCart }) => {
                                 price={sandwich.price}
                                 tags={sandwich.tags}
                                 stripePriceId={sandwich.stripePriceId}
-                                quantity={1}
+                                quantity={sandwich.quantity}
                                 onClick={() => handleItemClick(sandwich)} 
                             />
                         ))}
@@ -104,7 +104,7 @@ const FullMenu = ({ addToCart }) => {
                                 price={burger.price}
                                 tags={burger.tags}
                                 stripePriceId={burger.stripePriceId}
-                                quantity={1}
+                                quantity={burger.quantity}
                                 onClick={() => handleItemClick(burger)} 
                             />
                         ))}
@@ -123,7 +123,7 @@ const FullMenu = ({ addToCart }) => {
                                 price={salad.price}
                                 tags={salad.tags}
                                 stripePriceId={salad.stripePriceId}
-                                quantity={1}
+                                quantity={salad.quantity}
                                 onClick={() => handleItemClick(salad)} 
                             />
                         ))}
@@ -137,7 +137,7 @@ const FullMenu = ({ addToCart }) => {
                 price={selectedItem.price}
                 tags={selectedItem.tags}
                 stripePriceId={selectedItem.stripePriceId}
-                quantity={1}
+                quantity={selectedItem.quantity}
                 onClose={closeModal} // Pass the closeModal function to the modal
                 onAddToCart={() => handleAddToCart(selectedItem)} // Pass the callback to add to the cart
 
