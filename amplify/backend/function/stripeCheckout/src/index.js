@@ -28,7 +28,7 @@ exports.handler = async (event) => {
       },
       unit_amount: parseFloat(item.price.replace('$', '')) * 100, // amount in cents
     },
-    quantity: item.quantity,
+    quantity: 1,
   }));
 
   // Log the line items
@@ -46,6 +46,11 @@ exports.handler = async (event) => {
 
   return {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "https://main.d20ukwqpkslt8j.amplifyapp.com",
+      "Access-Control-Allow-Credentials": true, // if needed
+      // other headers
+    },
     body: JSON.stringify({ sessionId: session.id }),
   };
-};
+  };

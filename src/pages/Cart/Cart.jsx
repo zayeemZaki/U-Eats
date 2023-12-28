@@ -34,6 +34,7 @@ const Cart = ({ cart, setCartData }) => {
           body: JSON.stringify({ cart }),
         },
       }).response
+      console.log('Cart data after:', JSON.stringify(cart));
 
     // Log the raw response
     console.log('Raw response:', response);
