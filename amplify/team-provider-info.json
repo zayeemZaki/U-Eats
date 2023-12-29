@@ -15,7 +15,7 @@
       "function": {
         "stripeCheckout": {
           "deploymentBucketName": "amplify-ueats-dev-202424-deployment",
-          "s3Key": "amplify-builds/stripeCheckout-4c4a4b5463524f463538-build.zip"
+          "s3Key": "amplify-builds/stripeCheckout-4a78666b707a77644c34-build.zip"
         }
       },
       "api": {
