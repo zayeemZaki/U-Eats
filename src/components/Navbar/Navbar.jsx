@@ -87,20 +87,16 @@ const Navbar = () => {
       <ul className="app__navbar-links">
         <li className="p__opensans"><a href="/#home">Home</a></li>
         <li className="p__opensans"><a href="/#about">About</a></li>
-        <li className="p__opensans">
-         
-          <button className="menu-button" onClick={handleMenuButtonClick}>
-            Menu
-          </button>
-        </li>
+        <li className="p__opensans" onClick={handleMenuButtonClick}>Menu</li>
         <li className="p__opensans"><a href="/#contact">Contact</a></li>
       </ul>
 
+      
       <div className="app__navbar-login">
         {/* Use button instead of anchor for cart */}
-        <button className="p__opensans" style={{ fontSize: '24px' }} onClick={handleCartButtonClick}>
+        <li className="p__opensans" style={{ fontSize: '24px' }} onClick={handleCartButtonClick}>
           <FaShoppingCart />
-        </button>
+        </li>
       </div>
 
       <div className="app__navbar-smallscreen">

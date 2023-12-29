@@ -40,6 +40,12 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    list-style: none;
+}
+
+.app__navbar-login:hover {
+    cursor: pointer;
 }
 
 .app__navbar-login a {

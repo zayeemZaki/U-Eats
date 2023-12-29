@@ -68,8 +68,12 @@
         flex-direction: column;
     }
 
-    .app__aboutus-content_knife {
-        margin: 4rem 0;
+    .app__aboutus-content_knife img {
+        display: none;
+    }
+
+    .app__aboutus-overlay img{
+        display: none;
     }
 }
 
@@ -77,5 +81,13 @@
     .app__aboutus-overlay img {
         width: 80%;
         height: 320px;
+    }
+
+    .app__aboutus-content_knife img {
+        display: none;
+    }
+
+    .app__aboutus-overlay img{
+        display: none;
     }
 }
