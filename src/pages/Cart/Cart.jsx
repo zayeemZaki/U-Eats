@@ -23,7 +23,8 @@ const Cart = ({ cart, setCartData }) => {
     try {
       const stripe = await stripePromise;
       console.log('Cart data:', JSON.stringify(cart));
-
+  
+      // Make the API request
       const response = await post({
         apiName: "stripeAPI",
         path: "/checkout",
@@ -31,52 +32,35 @@ const Cart = ({ cart, setCartData }) => {
           headers: {
             Authorization: 'test'
           },
-          body: JSON.stringify({ cart }),
+          body: { 
+            cart
+          },
         },
       }).response
-      console.log('Cart data after:', JSON.stringify(cart));
 
-    // Log the raw response
-    console.log('Raw response:', response);
-
-    if (response.statusCode === 200 && response.body) {
-      // Convert ReadableStream to JSON
-      const reader = response.body.getReader();
-      const stream = new ReadableStream({
-        start(controller) {
-          function pump() {
-            return reader.read().then(({ done, value }) => {
-              if (done) {
-                controller.close();
-                return;
-              }
-              controller.enqueue(value);
-              return pump();
-            });
-          }
-          return pump();
-        }
-      });
-
-      const jsonResponse = await new Response(stream).json();
-      console.log('JSON Parsed response:', jsonResponse);
-
-      const sessionId = jsonResponse.sessionId;
-
-      // Redirect to Stripe Checkout
-      const { error: stripeError } = await stripe.redirectToCheckout({
-        sessionId,
-      });
-
-      if (stripeError) {
-        console.error('Stripe Error:', stripeError);
-      }
-    }
-  } catch (apiError) {
-    console.error('API Error:', apiError);
-  }
-};
+      const { sessionId } = await response.body.json()
+      console.log('Session ID:', sessionId);
   
+      // Redirect to Stripe Checkout
+      if (sessionId) {
+        const { error: stripeError } = await stripe.redirectToCheckout({
+          sessionId,
+        });
+  
+        if (stripeError) {
+          console.error('Stripe Error:', stripeError);
+        }
+      } 
+      else {
+        console.error('Session ID not received');
+      }
+  
+    } 
+    catch (apiError) {
+      console.error('API Error:', apiError);
+    }
+  };
+    
   const handleClearCart = () => {
     setCartData([]);
     localStorage.removeItem('cartData');
