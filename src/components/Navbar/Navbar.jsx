@@ -91,7 +91,7 @@ const Navbar = () => {
         <li className="p__opensans"><a href="/#contact">Contact</a></li>
       </ul>
 
-      
+
       <div className="app__navbar-login">
         {/* Use button instead of anchor for cart */}
         <li className="p__opensans" style={{ fontSize: '24px' }} onClick={handleCartButtonClick}>
@@ -108,11 +108,9 @@ const Navbar = () => {
             <ul className="app__navbar-smallscreen_links">
               <li><a href="/#home" onClick={() => setToggleMenu(false)}>Home</a></li>
               <li><a href="/#about" onClick={() => setToggleMenu(false)}>About</a></li>
-              <li>
-                
-                <button className="menu-button" onClick={() => { setToggleMenu(false); handleMenuButtonClick(); }}>
+              <li className="p__opensans" onClick={() => { setToggleMenu(false); handleMenuButtonClick(); }}>
                   Menu
-                </button>
+                
               </li>
               <li><a href="/#contact" onClick={() => setToggleMenu(false)}>Contact</a></li>
             </ul>
