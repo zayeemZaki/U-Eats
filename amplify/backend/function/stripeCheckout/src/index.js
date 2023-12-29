@@ -20,7 +20,7 @@ exports.handler = async (event) => {
         },
         unit_amount: parseFloat(item.price.replace('$', '')) * 100, // amount in cents
       },
-      quantity: 1,
+      quantity: item.quantity,
     }));
 
     // Create a Checkout Session using the line_items array
