@@ -28,8 +28,8 @@ exports.handler = async (event) => {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: 'https://your-website.com/success',
-      cancel_url: 'https://your-website.com/cancel',
+      success_url: 'https://u-eats.com/success.html',
+      cancel_url: 'http://u-eats.com/cancel.html',
     });
 
     return {
