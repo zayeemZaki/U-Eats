@@ -35,7 +35,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 200,
       headers: {
-        "Access-Control-Allow-Origin": "https://main.d20ukwqpkslt8j.amplifyapp.com",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": true,
         // Other headers if necessary
       },
