@@ -29,7 +29,7 @@ exports.handler = async (event) => {
       line_items,
       mode: 'payment',
       success_url: 'https://u-eats.com/success.html',
-      cancel_url: 'http://u-eats.com/cancel.html',
+      cancel_url: 'https://www.u-eats.com/cart',
     });
 
     return {
