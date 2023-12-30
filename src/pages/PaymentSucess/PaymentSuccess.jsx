@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PayemntSuccess = () => {
+const PaymentSuccess = () => {
     return (
         <div style={styles.container}>
             <h1 style={styles.header}>Payment Successful!</h1>
