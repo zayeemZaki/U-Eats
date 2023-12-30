@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
-import { Cart, Home, MenuList, AdminDashboard, MenuPage, LoginPage } from './pages/index.js';
+import { Cart, Home, MenuList, AdminDashboard, MenuPage, LoginPage, PaymentSuccess } from './pages/index.js';
 import { AuthProvider, useAuth } from './AuthContext';
 
 import './App.css';
@@ -69,6 +69,7 @@ const App = () => {
               element={<PrivateRoute element={<AdminDashboard />} />}
             />
             <Route path="/menuPage" element={<MenuPage addToCart={addToCart} />} />
+            <Route path="/PaymentSuccess" element={<PaymentSuccess/>} />
           </Routes>
         </div>
       </Router>
