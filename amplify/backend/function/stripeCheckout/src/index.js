@@ -28,7 +28,7 @@ exports.handler = async (event) => {
       payment_method_types: ['card'],
       line_items,
       mode: 'payment',
-      success_url: 'https://www.u-eats.com/success',
+      success_url: 'https://www.u-eats.com/PaymentSuccess',
       cancel_url: 'https://www.u-eats.com/cart',
     });
 
