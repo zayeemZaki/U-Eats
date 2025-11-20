@@ -8,8 +8,6 @@ A custom full-stack web platform designed and built for a local restaurant in To
 
 The goal of this project was to replace a static informational page with a functional e-commerce experience. The application handles everything from showcasing the restaurant's brand and location to processing secure transactions for food orders.
 
-<img width="1470" alt="U-Eats Home Page" src="https://github.com/zayeemZaki/U-Eats/assets/137522702/779dfb34-fbeb-406a-8fc4-9d7f9be1916c">
-
 ## Key Features
 
 - **Modern Information Display:** A clean, responsive landing page that highlights store hours, location, and brand identity, ensuring customers can find what they need quickly on mobile or desktop.
